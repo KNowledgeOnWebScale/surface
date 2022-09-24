@@ -3,4 +3,9 @@
 @prefix log: <http://www.w3.org/2000/10/swap/log#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
+<urn:example:Alice> <urn:example:is> <urn:example:Breathing>.
+<urn:example:Bob> <urn:example:is> <urn:example:Alive>.
+<urn:example:Alice> <urn:example:is> <urn:example:Alive>.
+<urn:example:Bob> <urn:example:is> <urn:example:Breathing>.
+<urn:example:test> <urn:example:is> true.
 

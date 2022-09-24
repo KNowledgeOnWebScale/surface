@@ -9,4 +9,6 @@
 <urn:example:P1> <urn:example:name> "Herman".
 <urn:example:P2> <urn:example:name> "Stefanie".
 <urn:example:P2> <urn:example:name> "Elizabeth".
+<urn:example:P1> a <urn:example:HasCardinalityCheck>.
+<urn:example:test> <urn:example:is> true.
 

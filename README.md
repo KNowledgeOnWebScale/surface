@@ -2,7 +2,8 @@
 
 ## Thin Knowledge as RDF Surfaces
 
-Implementing [Blogic as RDF Surfaces](https://www.slideshare.net/PatHayes/blogic-iswc-2009-invited-talk)
+We implement [BLOGIC](https://www.slideshare.net/PatHayes/blogic-iswc-2009-invited-talk) in [EYE](https://josd.github.io/eye/)
+and [test it with some examples and test cases](https://github.com/josd/think/blob/master/test).
 
 We currently use a [N3](https://w3c.github.io/N3/spec/) sublanguage to express RDF Surfaces.
 
