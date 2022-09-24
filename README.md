@@ -4,13 +4,13 @@
 
 Implementing [Blogic as RDF Surfaces](https://www.slideshare.net/PatHayes/blogic-iswc-2009-invited-talk)
 
-We currently use a N3 sublanguage to express RDF Surfaces.
+We currently use a [N3](https://w3c.github.io/N3/spec/) sublanguage to express RDF Surfaces.
 
 The built-ins are
 
-- log:onNegativeSurface
-- log:onQuerySurface
-- log:onNeutralSurface
+- `log:onNegativeSurface`
+- `log:onQuerySurface`
+- `log:onNeutralSurface`
 
 and they have a subject which is the graffiti marked on the object surface.
 
