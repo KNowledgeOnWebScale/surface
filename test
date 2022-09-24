@@ -1,0 +1,24 @@
+#!/bin/bash
+eye --quiet --nope --blogic http://josd.github.io/eye/reasoning/blogic/abc.n3 --output ./temp/abc-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/eye/reasoning/blogic/abcd.n3 --output ./temp/abcd-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/eye/reasoning/blogic/complex.n3 --output ./temp/complex-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/eye/reasoning/blogic/fibonacci.n3 --output ./temp/fibonacci-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/eye/reasoning/blogic/peano.n3 --output ./temp/peano-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/eye/reasoning/blogic/rain.n3 --output ./temp/rain-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/eye/reasoning/blogic/slide28.n3 --output ./temp/slide28-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/eye/reasoning/blogic/slide32.n3 --output ./temp/slide32-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/eye/reasoning/blogic/slide33.n3 --output ./temp/slide33-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/eye/reasoning/blogic/socrates.n3 --output ./temp/socrates-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/eye/reasoning/blogic/socrates-star.n3 --output ./temp/socrates-star-answer.n3
+eye --quiet --nope --turtle http://josd.github.io/eye/reasoning/bmt/1tt1.n3 --turtle http://josd.github.io/eye/reasoning/bmt/1tt2.n3 --turtle http://josd.github.io/eye/reasoning/bmt/1tt3.n3 --turtle http://josd.github.io/eye/reasoning/bmt/1tt4.n3 --turtle http://josd.github.io/eye/reasoning/bmt/1tt5.n3 --turtle http://josd.github.io/eye/reasoning/bmt/1tt6.n3 --turtle http://josd.github.io/eye/reasoning/bmt/1tt7.n3 --turtle http://josd.github.io/eye/reasoning/bmt/1tt8.n3 --turtle http://josd.github.io/eye/reasoning/bmt/1tt9.n3 --turtle http://josd.github.io/eye/reasoning/bmt/1tt10.n3 --blogic http://josd.github.io/eye/reasoning/blogic/bmt.n3 --output ./temp/bmt-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/temp/blogic/biconditional.n3 --output ./temp/biconditional-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/temp/blogic/cardinality.n3 --output ./temp/cardinality-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/temp/blogic/contradiction.n3 --output ./temp/contradiction-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/temp/blogic/contradiction2:FAIL.n3 --output ./temp/contradiction2:FAIL-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/temp/blogic/counter_example:FAIL.n3 --output ./temp/counter_example:FAIL-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/temp/blogic/exclusive_disjunction.n3 --output ./temp/exclusive_disjunction-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/temp/blogic/negativeSurface1.n3 --output ./temp/negativeSurface1-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/temp/blogic/negativeSurface2.n3 --output ./temp/negativeSurface2-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/temp/blogic/range.n3 --output ./temp/range-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/temp/blogic/rdfs.n3 --output ./temp/rdfs-answer.n3
+eye --quiet --nope --blogic http://josd.github.io/temp/blogic/real_programmer.n3 --output ./temp/real_programmer-answer.n3

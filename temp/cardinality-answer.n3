@@ -1,0 +1,12 @@
+@prefix : <urn:example:>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix list: <http://www.w3.org/2000/10/swap/list#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+
+<urn:example:cardinalCount> a log:GraphCounter.
+<urn:example:P1> <urn:example:name> "Patrick".
+<urn:example:P1> <urn:example:name> "Christian".
+<urn:example:P1> <urn:example:name> "Herman".
+<urn:example:P2> <urn:example:name> "Stefanie".
+<urn:example:P2> <urn:example:name> "Elizabeth".
+
