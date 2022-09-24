@@ -6,11 +6,13 @@ Implementing [Blogic as RDF surfaces](https://www.slideshare.net/PatHayes/blogic
 
 We currently use a N3 sublanguage to express RDF surfaces.
 
-The built-ins
+The built-ins are
+
 - log:onNegativeSurface
 - log:onQuerySurface
 - log:onNeutralSurface
-have a subject which is the graffiti on the object surface.
+
+and they have a subject which is the graffiti marked on the object surface.
 
 A negative surface containing a query surface is treated as a backward rule.
 See for instance [complex functions](https://github.com/josd/eye/blob/master/reasoning/blogic/complex.n3)
