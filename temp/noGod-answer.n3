@@ -1,0 +1,9 @@
+@prefix : <urn:example:>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix list: <http://www.w3.org/2000/10/swap/list#>.
+
+<urn:example:cardinalCount> a log:GraphCounter.
+_:e_x_1 a <urn:example:God>.
+<https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/noGod.n3> a <urn:example:MissingGodTest>.
+<urn:example:test> <urn:example:is> true.
+
