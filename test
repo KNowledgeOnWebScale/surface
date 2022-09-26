@@ -19,6 +19,7 @@ eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/re
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/fibonacci.n3 --output ./temp/fibonacci-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/peano.n3 --output ./temp/peano-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/rain.n3 --output ./temp/rain-answer.n3
+eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/sdcoding.n3 --output ./temp/sdcoding-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/slide28.n3 --output ./temp/slide28-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/slide32.n3 --output ./temp/slide32-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/slide33.n3 --output ./temp/slide33-answer.n3
