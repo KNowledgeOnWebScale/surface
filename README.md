@@ -9,6 +9,7 @@ We currently use a [N3](https://w3c.github.io/N3/spec/) sublanguage to express R
 
 The built-ins are
 
+- `log:onPositiveSurface`
 - `log:onNegativeSurface`
 - `log:onQuerySurface`
 - `log:onNeutralSurface`
