@@ -7,12 +7,12 @@ and [test it](https://github.com/josd/think/blob/master/test) with [some example
 
 We currently use a [N3](https://w3c.github.io/N3/spec/) sublanguage to express RDF Surfaces.
 
-The built-ins are
+The surface related built-ins are
 
 - `log:onPositiveSurface`
 - `log:onNegativeSurface`
-- `log:onQuerySurface`
 - `log:onNeutralSurface`
+- `log:onQuerySurface`
 
 and they have a subject which is the graffiti marked on the object surface.
 
