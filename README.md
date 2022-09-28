@@ -40,7 +40,7 @@ The surface related built-ins are
 - `log:onNeutralSurface`
 - `log:onQuerySurface`
 
-and they have a subject which is the graffiti marked on the object surface.
+and they have a subject which is a list of blank nodes aka the graffiti marked on the object surface.
 
 A negative surface containing a query surface is treated as a backward rule.
 See for instance [complex functions](https://github.com/josd/eye/blob/master/reasoning/blogic/complex.n3).
