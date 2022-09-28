@@ -7,6 +7,32 @@ and [test it](https://github.com/josd/know/blob/master/test) with [some examples
 
 We currently use a [N3](https://w3c.github.io/N3/spec/) sublanguage to express RDF Surfaces.
 
+Here is a simple example:
+
+```
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix : <http://example.org/ns#>.
+
+:Ghent a :City.
+
+# Every city is a human community
+(_:S) log:onNegativeSurface {
+    _:S a :City.
+    () log:onNegativeSurface {
+        _:S a :HumanCommunity.
+    }.
+}.
+
+# query
+(_:S _:C) log:onQuerySurface {
+    _:S a _:C.
+}.
+```
+
+The `top` surface is an implicit positive surface asserting triples like `:Ghent a :City.`
+but it is also "containing" a negative surface saying that it is not possible that
+something that is a city is not a human community.
+
 The surface related built-ins are
 
 - `log:onPositiveSurface`

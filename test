@@ -9,6 +9,7 @@ eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/negativeSurface2.n3 --output ./temp/negativeSurface2-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/noGod.n3 --output ./temp/noGod-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/oneGod:FAIL.n3 --output ./temp/noGod:FAIL-answer.n3
+eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/policy/R3.n3 https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/policy/R2.n3 https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/policy/R1.n3 https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/policy/Query.n3 https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/policy/Policy2.n3 https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/policy/Policy1.n3 https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/policy/Context.n3 --output ./temp/policy-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/range.n3 --output ./temp/range-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/rdfs.n3 --output ./temp/rdfs-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/real_programmer.n3 --output ./temp/real_programmer-answer.n3
@@ -22,7 +23,8 @@ eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/re
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/peano.n3 --output ./temp/peano-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/rain.n3 --output ./temp/rain-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/sdcoding.n3 --output ./temp/sdcoding-answer.n3
-eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/slide28.n3 --output ./temp/slide28-answer.n3
+eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/slide28a.n3 --output ./temp/slide28a-answer.n3
+eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/slide28b.n3 --output ./temp/slide28b-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/slide32.n3 --output ./temp/slide32-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/slide33.n3 --output ./temp/slide33-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/socrates.n3 --output ./temp/socrates-answer.n3
