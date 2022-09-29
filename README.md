@@ -35,12 +35,11 @@ something that is a city is not a human community.
 
 The surface related built-ins are
 
-- `log:onPositiveSurface`
-- `log:onNegativeSurface`
-- `log:onNeutralSurface`
-- `log:onQuerySurface`
+`log:onPositiveSurface` | Positive surfaces claim that an RDF graph on them is true
+`log:onNegativeSurface` | Negative surfaces claim that an RDF graph on them is false
+`log:onQuerySurface` | Query surfaces use the RDF graph on them as a query
 
-and they have a subject which is a list of blank nodes also known as graffiti marked on the object surface.
+They have a subject which is a list of blank nodes also known as graffiti marked on the object surface.
 
 A negative surface containing a query surface is treated as a backward rule.
 See for instance [complex functions](https://github.com/josd/eye/blob/master/reasoning/blogic/complex.n3).
