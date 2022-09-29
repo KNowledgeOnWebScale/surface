@@ -35,7 +35,7 @@ something that is a city is not a human community.
 
 ### Specification
 
-Surfaces are written as triples where the `subject` is a list of blank nodes marked on the `object` surface.
+Surfaces are written as triples where the `subject` is a list of blank nodes marked on the `object` RDF graph.
 The `predicate` specifies the kind of surface and the following ones are currently built-ins:
 
 | built-in | semantics |
