@@ -33,13 +33,14 @@ The `top` surface is an implicit positive surface asserting triples like `:Ghent
 but it is also "containing" a negative surface saying that it is not possible that
 something that is a city is not a human community.
 
-The surface related built-ins are
+Surfaces are written as N3 triples where the subject is a list of blank nodes marked on the object surface.
+The predicate specifies the kind of surface and the following ones are currently built-ins:
 
-`log:onPositiveSurface` | Positive surfaces claim that an RDF graph on them is true
-`log:onNegativeSurface` | Negative surfaces claim that an RDF graph on them is false
-`log:onQuerySurface` | Query surfaces use the RDF graph on them as a query
-
-They have a subject which is a list of blank nodes also known as graffiti marked on the object surface.
+| built-in | semantics |
+| -------- | -------- |
+| `log:onPositiveSurface` | Positive surfaces claim that an RDF graph on them is true |
+| `log:onNegativeSurface` | Negative surfaces claim that an RDF graph on them is false |
+| `log:onQuerySurface` | Query surfaces use the RDF graph on them as a query |
 
 A negative surface containing a query surface is treated as a backward rule.
 See for instance [complex functions](https://github.com/josd/eye/blob/master/reasoning/blogic/complex.n3).
