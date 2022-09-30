@@ -13,6 +13,7 @@ eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/range.n3 --output ./temp/range-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/rdfs.n3 --output ./temp/rdfs-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/real_programmer.n3 --output ./temp/real_programmer-answer.n3
+eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/syntactic_sugar.n3 --output ./temp/syntactic_sugar-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/trueGod.n3 --output ./temp/trueGod-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/abc.n3 --output ./temp/abc-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/abcd.n3 --output ./temp/abcd-answer.n3
@@ -30,3 +31,4 @@ eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/re
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/socrates.n3 --output ./temp/socrates-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/socrates-star.n3 --output ./temp/socrates-star-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/spo.n3 --output ./temp/spo-answer.n3
+git diff
