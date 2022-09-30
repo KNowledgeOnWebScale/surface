@@ -1,0 +1,177 @@
+<pre class='metadata'>
+Title: Knowledge as RDF Surfaces
+Shortname: RDF Surfaces
+Level: 1
+Status: LD
+Editor: Jos De Roo, [KNoWS](https://knows.idlab.ugent.be/team/), jos.deroo@ugent.be 
+Abstract: This document specified a N3 sublanguage to express RDF Surfaces.
+Markup Shorthands: markdown yes 
+Boilerplate: 
+</pre>
+
+<style>
+table {
+  margin: 25px auto;
+  border-collapse: collapse;
+  border: 1px solid #eee;
+  border-bottom: 2px solid #005A9C;
+}
+table tr:hover {
+  background: #f4f4f4;
+}
+table tr:hover td {
+  color: #555;
+}
+table th, table td {
+  color: #999;
+  border: 1px solid #eee;
+  padding: 12px 12px;
+  border-collapse: collapse;
+}
+table th {
+  background: #005A9C;
+  color: #fff;
+}
+table tbody > tr > th {
+  background: #fff;
+  color: #005A9C;
+}
+table th.last {
+  border-right: none;
+}
+</style>
+
+Introduction {#Introduction}
+=====================
+
+Issue: TODO
+
+Surfaces are written as triples where the `subject` is a list of blank nodes marked on the 
+object RDF graph. The `predicate` specifies the kind of surface and the following ones are 
+currently built-ins:
+
+<table>
+ <thead>
+ <tr>
+  <td>built-in
+  <td>semantics
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+  <td>`log:onPositiveSurface`
+  <td>Positive surfaces claim that an RDF graph on them is true
+ <tr>
+  <td>`log:onNegativeSurface`
+  <td>Negative surfaces claim that an RDF graph on them is false
+ <tr>
+  <td>`log:onQuerySurface`
+  <td>Query surfaces use the RDF graph on them as a query
+ </tbody>
+</table>
+
+A negative surface containing a query surface is treated as a backward rule.
+
+<div class=example>
+
+`:Ghent a :City` is a triple on the implicit positive surface. The two nested
+negative surfaces express that for any subject `_:S` on the positive service
+that is a `:City` it implies it needs be be also a `:HumanCommunity`.
+
+```
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix : <http://example.org/ns#>.
+
+:Ghent a :City.
+
+# Every city is a human community
+(_:S) log:onNegativeSurface {
+    _:S a :City.
+    () log:onNegativeSurface {
+        _:S a :HumanCommunity.
+    }.
+}.
+
+# query
+(_:S _:C) log:onQuerySurface {
+    _:S a _:C.
+}.
+```
+</div>
+
+Document Conventions
+=====================
+
+Within this document, the following namespace prefix bindings to [[URI]]-s are used: 
+
+<table>
+  <thead>
+    <tr>
+      <th>Prefix
+      <th>Namespace
+  <tbody>
+    <tr>
+      <td>ex
+      <td>http://example.org/
+    <tr>
+      <td>rdf
+      <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#
+    <tr>
+      <td>log
+      <td>http://www.w3.org/2000/10/swap/log#
+    <tr>
+      <td>list
+      <td>http://www.w3.org/2000/10/swap/list#
+    <tr>
+      <td>string
+      <td>http://www.w3.org/2000/10/swap/string#
+</table>
+
+Surface {#Surface}
+==============================
+
+## Positive Surface ## {#PositiveSurface}
+
+Issue: TODO
+
+## Negative Surface ## {#NegativeSurface}
+
+Issue: TODO
+
+## Neutral Surface ## {#NeutralSurface}
+
+Issue: TODO
+
+## Other Surfaces ## {#OtherSurface}
+
+Issue: TODO
+
+## Blank nodes ## {#BlankNodes}
+
+Issue: TODO
+
+Coherent logic {#CoherentLogic}
+================
+
+Issue: TODO
+
+Examples {#Examples}
+================
+
+Issue: TODO
+
+<pre class=biblio>
+{
+	"N3": {
+		"authors": [
+			"Dörthe Arndt",
+			"William Van Woensel",
+			"Dominik Tomaszuk" ,
+            "Gregg Kellogg"
+		],
+		"href": "https://w3c.github.io/N3/spec/",
+		"title": "Notation3",
+		"status": "Draft Community Group Report"
+	}
+}
+</pre>
