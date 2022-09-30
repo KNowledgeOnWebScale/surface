@@ -76,27 +76,37 @@ A negative surface containing a query surface is treated as a backward rule.
 
 `:Ghent a :City` is a triple on the implicit positive surface. The two nested
 negative surfaces express that for any subject `_:S` on the positive service
-that is a `:City` it implies it needs be be also a `:HumanCommunity`.
+that is a `:City`, it implies that `_:S` needs be be also a `:HumanCommunity`.
 
-```
-@prefix log: <http://www.w3.org/2000/10/swap/log#>.
-@prefix : <http://example.org/ns#>.
+<pre highlight="turtle">
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt;.
+@prefix ex: &lt;http://example.org/ns#&gt;.
 
-:Ghent a :City.
+ex:Ghent a ex:City.
 
 # Every city is a human community
 (_:S) log:onNegativeSurface {
-    _:S a :City.
+    _:S a ex:City.
     () log:onNegativeSurface {
-        _:S a :HumanCommunity.
+        _:S a ex:HumanCommunity.
     }.
 }.
 
-# query
+# Query
 (_:S _:C) log:onQuerySurface {
     _:S a _:C.
 }.
-```
+</pre>
+
+When this surface is executed by a reasoner the result would be:
+
+<pre highlight="turtle">
+@prefix ex: &lt;http://example.org/ns#&gt;.
+
+ex:Ghent a ex:City.
+ex:Ghent a ex:HumanCommunity.
+</pre>
+
 </div>
 
 Document Conventions
@@ -112,7 +122,7 @@ Within this document, the following namespace prefix bindings to [[URI]]-s are u
   <tbody>
     <tr>
       <td>ex
-      <td>http://example.org/
+      <td>http://example.org/ns#
     <tr>
       <td>rdf
       <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#
