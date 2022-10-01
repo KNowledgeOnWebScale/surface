@@ -1,0 +1,8 @@
+@prefix : <urn:example:>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+
+_:e_x_1 a <urn:example:PastaEater>.
+_:e_x_1 a <urn:example:RiceEater>.
+_:e_x_1 a <urn:example:RisottoEater>.
+<urn:example:test> <urn:example:is> true.
+
