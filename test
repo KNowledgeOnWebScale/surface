@@ -33,3 +33,4 @@ eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/re
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/socrates.n3 --output ./temp/socrates-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/socrates-star.n3 --output ./temp/socrates-star-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/spo.n3 --output ./temp/spo-answer.n3
+eye --quiet --nope --blogic https://raw.githubusercontent.com/josd/eye/master/reasoning/blogic/zebra.n3 --output ./temp/zebra-answer.n3
