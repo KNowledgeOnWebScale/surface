@@ -13,7 +13,7 @@
 () log:onNegativeSurface {<urn:example:Alice> <urn:example:eats> <urn:example:Quiche>}.
 () log:onNegativeSurface {<urn:example:Charly> a <urn:example:RealProgrammer>}.
 () log:onNegativeSurface {<urn:example:Estelle> a <urn:example:RealProgrammer>}.
-() log:onNegativeSurface {<urn:example:Bob> a <urn:example:RealProgrammer>}.
 () log:onNegativeSurface {<urn:example:Dave> a <urn:example:RealProgrammer>}.
+() log:onNegativeSurface {<urn:example:Bob> a <urn:example:RealProgrammer>}.
 <urn:example:test> <urn:example:is> true.
 

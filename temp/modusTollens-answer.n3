@@ -1,0 +1,7 @@
+@prefix : <urn:example:>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+
+<urn:example:test> <urn:example:is> true.
+() log:onNegativeSurface {<urn:example:Rex> a <urn:example:Bird>}.
+() log:onNegativeSurface {<urn:example:Rex> a <urn:example:Chicken>}.
+

@@ -1,0 +1,18 @@
+@prefix : <urn:example:>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix list: <http://www.w3.org/2000/10/swap/list#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+
+_:e_x_1 a <urn:example:Person>.
+(rdf:type <urn:example:is> <urn:example:likes> <urn:example:plays> <urn:example:listensTo>) list:member rdf:type.
+_:e_x_1 a <urn:example:PersonPerson>.
+_:e_x_1 <urn:example:likes> <urn:example:Music>.
+(rdf:type <urn:example:is> <urn:example:likes> <urn:example:plays> <urn:example:listensTo>) list:member <urn:example:likes>.
+_:e_x_1 <urn:example:plays> <urn:example:Piano>.
+(rdf:type <urn:example:is> <urn:example:likes> <urn:example:plays> <urn:example:listensTo>) list:member <urn:example:plays>.
+_:e_x_1 <urn:example:listensTo> <urn:example:JoeyAlexander>.
+(rdf:type <urn:example:is> <urn:example:likes> <urn:example:plays> <urn:example:listensTo>) list:member <urn:example:listensTo>.
+_:e_x_1 a <urn:example:PersonPersonPerson>.
+<urn:example:test> <urn:example:is> true.
+(rdf:type <urn:example:is> <urn:example:likes> <urn:example:plays> <urn:example:listensTo>) list:member <urn:example:is>.
+

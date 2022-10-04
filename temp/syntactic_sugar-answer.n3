@@ -1,0 +1,8 @@
+@prefix : <urn:example:>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+
+<urn:example:Ghent> a <urn:example:City>.
+<urn:example:Ghent> a <urn:example:HumanCommunity>.
+<urn:example:Ghent> a <urn:example:Settlement>.
+<urn:example:test> <urn:example:is> true.
+
