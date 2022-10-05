@@ -6,6 +6,7 @@ eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/counter_example:FAIL.n3 --output ./temp/counter_example:FAIL-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/evennumber:FAIL.n3 --output ./temp/evennumber:FAIL-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/exclusive_disjunction.n3 --output ./temp/exclusive_disjunction-answer.n3
+eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/ifthisorthatthen.n3 --output ./temp/ifthisorthatthen-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/modusTollens.n3 --output ./temp/modusTollens-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/negativeSurface1.n3 --output ./temp/negativeSurface1-answer.n3
 eye --quiet --nope --blogic https://raw.githubusercontent.com/phochste/Notation3-By-Example/main/log/blogic/negativeSurface2.n3 --output ./temp/negativeSurface2-answer.n3
