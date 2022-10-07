@@ -1,9 +1,0 @@
-@prefix : <urn:example:>.
-@prefix log: <http://www.w3.org/2000/10/swap/log#>.
-
-<urn:example:test> <urn:example:is> true.
-{<urn:example:A> a <urn:example:Fish>} <urn:example:OR> {<urn:example:B> a <urn:example:Mussle>}.
-{<urn:example:B> a <urn:example:Mussle>} <urn:example:OR> {<urn:example:A> a <urn:example:Fish>}.
-{<urn:example:C> a <urn:example:Freeze>} <urn:example:OR> {<urn:example:D> a <urn:example:Thaw>}.
-{<urn:example:D> a <urn:example:Thaw>} <urn:example:OR> {<urn:example:C> a <urn:example:Freeze>}.
-

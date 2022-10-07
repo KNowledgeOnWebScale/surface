@@ -1,8 +1,0 @@
-@prefix : <urn:example:>.
-@prefix log: <http://www.w3.org/2000/10/swap/log#>.
-
-<urn:example:Alice> <urn:example:friend> <urn:example:Bob>.
-<urn:example:Bob> <urn:example:friend> <urn:example:Charly>.
-<urn:example:Alice> <urn:example:likes> <urn:example:Bob>.
-<urn:example:test> <urn:example:is> true.
-
