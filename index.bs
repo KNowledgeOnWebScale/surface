@@ -254,7 +254,7 @@ mean alive, or dead, or both alive and dead.
 </div>
 
 <div class=example>
-*"If any cat is alive, it says meow"* in Notation3 .
+*"If any cat X is alive, then X says meow"* in Notation3 .
 
 ```
 @prefix : <http://example.org/ns#> .
