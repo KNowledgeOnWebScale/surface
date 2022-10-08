@@ -164,7 +164,7 @@ of paper:
 - The logical disjunction **OR** can be made by a combination of *positive* and *negative surfaces*:
     - `NOT(P AND Q) = NOT(P) OR NOT(Q)`
     - `NOT( NOT(P) AND NOT(Q)) = P OR Q`
-- The logical implication **→** can be made with a cobination of **AND** and **OR**:
+- The logical implication **→** can be made with a combination of **AND** and **OR**:
     - `P → Q = NOT(P) OR Q = NOT( P AND NOT(Q) )`
 
 <div class=example>
