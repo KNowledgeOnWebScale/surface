@@ -4,7 +4,7 @@ Level: 1
 Status: LD
 Editor: Jos De Roo, [KNoWS](https://knows.idlab.ugent.be/team/), jos.deroo@ugent.be 
 Editor: Patrick Hochstenbach, [KNoWS](https://knows.idlab.ugent.be/team/), patrick.hochstenbach@ugent.be 
-Abstract: This document specified a N3 sublanguage to express RDF Surfaces.
+Abstract: This document specifies a Notation3 sublanguage to express RDF Surfaces.
 Markup Shorthands: markdown yes 
 Boilerplate: 
 </pre>
@@ -193,8 +193,9 @@ First-order logic using *positive* and *negative* surfaces.
 RDF Surfaces provides a way to express the notion of *positive* and *negative surfaces*
 in Notation3 with help of the built-ins `log:onPositiveSurface` and `log:onNegativeSurface`.
 
-As subject to both built-in one can provide the blank nodes that have to be put in those
-surfaces (so that they become existentials or universals). 
+The subject of both built-ins are the blank nodes that need to be put on the 
+surface (so that they become existentials or universals depeding on the type
+of surface). 
 
 <div class=example>
 *"Something is a city"* in Notation3 .
