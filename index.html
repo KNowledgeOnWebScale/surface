@@ -1487,7 +1487,7 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version fb328af6b, updated Fri Oct 7 16:01:17 2022 -0700" name="generator">
+  <meta content="Bikeshed version 11cdbd324, updated Fri Oct 7 18:14:16 2022 -0700" name="generator">
 <style>
 table {
   margin: 25px auto;
@@ -2038,7 +2038,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">RDF Surfaces Primer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2022-10-08">8 October 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2022-10-09">9 October 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>Issue Tracking:
@@ -2051,7 +2051,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" height="15" src="https://licensebuttons.net/p/zero/1.0/80x15.png" width="80"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 8 October 2022,
+In addition, as of 9 October 2022,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -2099,7 +2099,7 @@ paper to another sheet of paper.</p>
    <p><a href="https://www.w3.org/TR/rdf11-mt/#blank-nodes">Blank nodes</a> are special. They can’t
 be copied to a new piece of paper. They can be thought of scratches on a piece of 
 paper. These scratches, or graffiti, are engraved into the piece of paper and can’t
-be transferred. When creating copying data with blank nodes onto a new sheet of paper, 
+be transferred. When copying data with blank nodes onto a new sheet of paper, 
 new scratches need to be made.</p>
    <div class="example" id="example-f4b4150e">
     <a class="self-link" href="#example-f4b4150e"></a> An empty <em>positive surface</em> is a tautology. 
@@ -2146,13 +2146,13 @@ positive surfaces, then  they express:</p>
    <p>The <a href="https://www.w3.org/TR/rdf11-mt/#blank-nodes">blank nodes</a> need to be interpreted
 as logical existentials on logical paper.</p>
    <p><strong>Negative surface</strong></p>
-   <p>In the same way as a <em>positive surface</em> asserts a logical truths, a <strong>negative surface</strong> asserts a logical negation. The examples below will use a sheet of paper with a red border
+   <p>In the same way as a <em>positive surface</em> asserts a logical truth, a <strong>negative surface</strong> asserts a logical negation. The examples below will use a sheet of paper with a red border
 as a negative surface.</p>
    <p>An empty <em>negative surface</em> expresses a logical contradicton, false. When there are one
 or more RDF graphs written on an <em>negative</em> surface they mean the negation of those RDF graphs.</p>
    <p>A blank node on a negative surface is interpreted as a logical universal. The reason is
 that:</p>
-<pre>∀ x : P(x) ⇔ ¬(E x : P(x))
+<pre>∀ x : P(x) ⇔ NOT(E x : P(x))
 </pre>
    <div class="example" id="example-02d2b9af">
     <a class="self-link" href="#example-02d2b9af"></a> An empty <em>negative surface</em> is a contradiction. 
@@ -2197,8 +2197,10 @@ of paper:</p>
    </div>
    <p><strong>First-order logic</strong></p>
    <p>First-order logic can be added to the RDF surfaces by interpreting the blank node as
-an existential and using the rule that a universal can made from a existential by 
-placing it in an enclosing negative surface: ∀ x : P(x) ⇔ ¬(E x : P(x)):</p>
+an existential and using the rule that a universal can made from an existential by 
+placing it in an enclosing negative surface:</p>
+<pre>∀ x : P(x) ⇔ NOT(E x : P(x)):
+</pre>
    <ul>
     <li data-md>
      <p>By placing a blank node on a <em>positive surface</em> it is an existential.</p>
