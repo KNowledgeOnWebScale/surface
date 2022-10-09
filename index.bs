@@ -57,7 +57,7 @@ paper to another sheet of paper.
 [Blank nodes](https://www.w3.org/TR/rdf11-mt/#blank-nodes) are special. They can't 
 be copied to a new piece of paper. They can be thought of scratches on a piece of 
 paper. These scratches, or graffiti, are engraved into the piece of paper and can't
-be transferred. When creating copying data with blank nodes onto a new sheet of paper, 
+be transferred. When copying data with blank nodes onto a new sheet of paper, 
 new scratches need to be made.
 
 <div class=example>
