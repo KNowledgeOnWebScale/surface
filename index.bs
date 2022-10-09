@@ -119,7 +119,7 @@ as logical existentials on logical paper.
 
 **Negative surface**
 
-In the same way as a *positive surface* asserts a logical truths, a **negative surface**
+In the same way as a *positive surface* asserts a logical truth, a **negative surface**
 asserts a logical negation. The examples below will use a sheet of paper with a red border
 as a negative surface.
 
@@ -176,7 +176,7 @@ Propositional logic using *positive* and *negative* surfaces.
 **First-order logic**
 
 First-order logic can be added to the RDF surfaces by interpreting the blank node as 
-an existential and using the rule that a universal can made from a existential by 
+an existential and using the rule that a universal can made from an existential by 
 placing it in an enclosing negative surface: 
 
 ```
