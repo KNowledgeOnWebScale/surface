@@ -130,7 +130,7 @@ A blank node on a negative surface is interpreted as a logical universal. The re
 that:
 
 ```
-∀ x : P(x) ⇔ ¬(E x : P(x))
+∀ x : P(x) ⇔ NOT(E x : P(x))
 ```
 
 <div class=example>
@@ -177,7 +177,11 @@ Propositional logic using *positive* and *negative* surfaces.
 
 First-order logic can be added to the RDF surfaces by interpreting the blank node as 
 an existential and using the rule that a universal can made from a existential by 
-placing it in an enclosing negative surface: ∀ x : P(x) ⇔ ¬(E x : P(x)):
+placing it in an enclosing negative surface: 
+
+```
+∀ x : P(x) ⇔ NOT(E x : P(x)):
+```
 
 - By placing a blank node on a *positive surface* it is an existential.
 - By placing a blank node on a *negative surface* it is a universal.
