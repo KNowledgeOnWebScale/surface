@@ -180,11 +180,11 @@ an existential and using the rule that a universal can made from an existential 
 placing it in an enclosing negative surface: 
 
 ```
-∀ x : P(x) ⇔ NOT(E x : P(x)):
+∀ x : P(x) ⇔ NOT(E x : NOT P(x)):
 ```
 
 - By placing a blank node on a *positive surface* it is an existential.
-- By placing a blank node on a *negative surface* it is a universal.
+- By placing a blank node on a *negative surface* it is an universal.
 
 <div class=example>
 First-order logic using *positive* and *negative* surfaces.
