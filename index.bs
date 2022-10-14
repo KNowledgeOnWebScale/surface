@@ -513,7 +513,7 @@ intepretation of the negative surface is the negation of RDF Graph on it.
 
 The semantics of a negative surface is interpreted as a logical falsehood:
 
-- An empty negative surface is a contradiction
+- An empty negative surface is a contradiction.
 - When a triple is placed on a negative surface, then surface is valid when the triple is false.
 - When two or more triples are placed on a positive surface, then the surface is valid when the logical conjunction of all triples is false.
 
@@ -652,7 +652,7 @@ With combinations of AND and NOT other logical truth function can be build. E.g.
 - Converse implication `P ← Q` : `NOT( NOT(P) AND Q )` .
 - Biconditional `(P → Q) ∧ (Q → P)` : `NOT( P AND NOT Q ) AND NOT( Q AND NOT P )`
 
-Negative surfaces should also folow the law of double negation elimination `P = NOT(NOT(P))`.
+Negative surfaces should also follow the law of double negation elimination: `P = NOT(NOT(P))`.
 
 ## Query Surface ## {#QuerySurface}
 
