@@ -42,7 +42,9 @@ The `predicate` specifies the kind of surface and the following ones are current
 | -------- | -------- |
 | `log:onPositiveSurface` | Positive surfaces claim that an RDF graph on them is true |
 | `log:onNegativeSurface` | Negative surfaces claim that an RDF graph on them is false |
+| `log:onNeutralSurface` | Neutral surfaces don't claim that the RDF graph on them is true or false |
 | `log:onQuerySurface` | Query surfaces use the RDF graph on them as a query |
+| `log:onAskSurface` | Ask surfaces use the RDF graph on them as a boolean query |
 
 A negative surface containing a query surface is treated as a backward rule.
 See for instance [complex functions](https://github.com/josd/eye/blob/master/reasoning/blogic/complex.n3).
