@@ -1,6 +1,6 @@
 # surface
 
-## Knowledge as RDF Surfaces
+## R&D of RDF Surfaces
 
 We implement [BLOGIC](https://www.slideshare.net/PatHayes/blogic-iswc-2009-invited-talk) in [EYE](https://josd.github.io/eye/)
 and test it with [some examples and test cases](https://github.com/josd/surface/blob/master/etc.md).
