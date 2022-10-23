@@ -1,9 +1,9 @@
-# knowards
+# surface
 
 ## Knowledge as RDF Surfaces
 
 We implement [BLOGIC](https://www.slideshare.net/PatHayes/blogic-iswc-2009-invited-talk) in [EYE](https://josd.github.io/eye/)
-and test it with [some examples and test cases](https://github.com/josd/knowards/blob/master/etc.md).
+and test it with [some examples and test cases](https://github.com/josd/surface/blob/master/etc.md).
 
 We currently use a [N3](https://w3c.github.io/N3/spec/) sublanguage to express RDF Surfaces.
 

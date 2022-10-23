@@ -318,7 +318,7 @@ ex:Ghent a ex:HumanCommunity.
 
 </div>
 
-More test cases can be found at [https://github.com/josd/knowards/blob/master/etc.md](https://github.com/josd/knowards/blob/master/etc.md) .
+More test cases can be found at [https://github.com/josd/surface/blob/master/etc.md](https://github.com/josd/surface/blob/master/etc.md) .
 
 Document Conventions
 =====================
