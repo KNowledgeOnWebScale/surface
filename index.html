@@ -2085,8 +2085,10 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#OtherSurface"><span class="secno">3.5</span> <span class="content">Other Surfaces</span></a>
       <li><a href="#BlankNodes"><span class="secno">3.6</span> <span class="content">Blank nodes</span></a>
      </ol>
-    <li><a href="#CoherentLogic"><span class="secno">4</span> <span class="content">Coherent logic</span></a>
-    <li><a href="#Examples"><span class="secno">5</span> <span class="content">Examples</span></a>
+    <li><a href="#Fuse"><span class="secno">4</span> <span class="content">Fuse</span></a>
+    <li><a href="#rdf-star-annotations-rdf-star"><span class="secno">5</span> <span class="content">RDF Star annotations {#RDF Star}</span></a>
+    <li><a href="#CoherentLogic"><span class="secno">6</span> <span class="content">Coherent logic</span></a>
+    <li><a href="#Examples"><span class="secno">7</span> <span class="content">Examples</span></a>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
     <li>
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
@@ -2604,17 +2606,8 @@ and combining the triples into a single RDF Surface by set union.</p>
     <li data-md>
      <p>Blank nodes on a query surface are interpreted as a logical universals. Triples matching these tripels will be exposed to external applications.</p>
    </ul>
-   <div class="example" id="example-2af3467a">
-    <a class="self-link" href="#example-2af3467a"></a> A query surface that exposes all the triples on the default surface. The query below
-is equivalent to the SPARQL query: 
-<pre>CONSTRUCT {
-    ?S ?P ?O .
-}
-WHERE {
-    ?S ?P ?O .
-}
-</pre>
-    <p>Or in RDF Surfaces:</p>
+   <div class="example" id="example-06abf4da">
+    <a class="self-link" href="#example-06abf4da"></a> A query surface that exposes all the triples on the default surface. 
 <pre class="language-(turtle)">@prefix : &lt;http://example.org/ns#> .
 @prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
 
@@ -2622,9 +2615,17 @@ WHERE {
     _:S _:P _:O .
 } .
 </pre>
+    <p>The query above is equivalent to the result of a SPARQL query:</p>
+<pre>CONSTRUCT {
+    ?S ?P ?O .
+}
+WHERE {
+    ?S ?P ?O .
+}
+</pre>
    </div>
-   <div class="example" id="example-ad093a89">
-    <a class="self-link" href="#example-ad093a89"></a> Return triples on a negative and the triples on neutral surface 
+   <div class="example" id="example-c4eba7c6">
+    <a class="self-link" href="#example-c4eba7c6"></a> Return the (single) triple on a negative surface 
 <pre class="language-(turtle)">@prefix : &lt;http://example.org/ns#> .
 @prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
 
@@ -2633,16 +2634,30 @@ WHERE {
         _:S _:P _:O .
     } .
 } .
-
-(_:S _:P _:O) log:onQuerySurface {
-    () log:onNeutralSurface {
-        _:S _:P _:O .
+</pre>
+    <p>The query above is equivalent to the result of a SPARQL query:</p>
+<pre>CONSTRUCT {
+    () log:onNegativeSurface {
+        ?S ?P ?O .
     } .
+}
+WHERE {
+    () log:onNegativeSurface {
+        ?S ?P ?O .
+    } .
+}
+</pre>
+    <p>To return all triples on the negative surface use the query surface:</p>
+<pre class="language-(turtle)">@prefix : &lt;http://example.org/ns#> .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+
+(_:G) log:onQuerySurface {
+    () log:onNegativeSurface _:G .
 } .
 </pre>
    </div>
-   <div class="example" id="example-594b2187">
-    <a class="self-link" href="#example-594b2187"></a> Return triples on a negatice surface about <code>http://example.org/ns#Alice</code>. 
+   <div class="example" id="example-e58288b9">
+    <a class="self-link" href="#example-e58288b9"></a> Return triples on a negative surface about <code>http://example.org/ns#Alice</code>. 
 <pre class="language-(turtle)">@prefix : &lt;http://example.org/ns#> .
 @prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
 
@@ -2661,10 +2676,14 @@ WHERE {
    <p class="issue" id="issue-b7b1e314①"><a class="self-link" href="#issue-b7b1e314①"></a> TODO</p>
    <h3 class="heading settled" data-level="3.6" id="BlankNodes"><span class="secno">3.6. </span><span class="content">Blank nodes</span><a class="self-link" href="#BlankNodes"></a></h3>
    <p class="issue" id="issue-b7b1e314②"><a class="self-link" href="#issue-b7b1e314②"></a> TODO</p>
-   <h2 class="heading settled" data-level="4" id="CoherentLogic"><span class="secno">4. </span><span class="content">Coherent logic</span><a class="self-link" href="#CoherentLogic"></a></h2>
+   <h2 class="heading settled" data-level="4" id="Fuse"><span class="secno">4. </span><span class="content">Fuse</span><a class="self-link" href="#Fuse"></a></h2>
    <p class="issue" id="issue-b7b1e314③"><a class="self-link" href="#issue-b7b1e314③"></a> TODO</p>
-   <h2 class="heading settled" data-level="5" id="Examples"><span class="secno">5. </span><span class="content">Examples</span><a class="self-link" href="#Examples"></a></h2>
+   <h2 class="heading settled" data-level="5" id="rdf-star-annotations-rdf-star"><span class="secno">5. </span><span class="content">RDF Star annotations {#RDF Star}</span><a class="self-link" href="#rdf-star-annotations-rdf-star"></a></h2>
    <p class="issue" id="issue-b7b1e314④"><a class="self-link" href="#issue-b7b1e314④"></a> TODO</p>
+   <h2 class="heading settled" data-level="6" id="CoherentLogic"><span class="secno">6. </span><span class="content">Coherent logic</span><a class="self-link" href="#CoherentLogic"></a></h2>
+   <p class="issue" id="issue-b7b1e314⑤"><a class="self-link" href="#issue-b7b1e314⑤"></a> TODO</p>
+   <h2 class="heading settled" data-level="7" id="Examples"><span class="secno">7. </span><span class="content">Examples</span><a class="self-link" href="#Examples"></a></h2>
+   <p class="issue" id="issue-b7b1e314⑥"><a class="self-link" href="#issue-b7b1e314⑥"></a> TODO</p>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
@@ -2830,4 +2849,6 @@ WHERE {
    <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314②" title="Jump to section">↵</a></div>
    <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314③" title="Jump to section">↵</a></div>
    <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314④" title="Jump to section">↵</a></div>
+   <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314⑤" title="Jump to section">↵</a></div>
+   <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314⑥" title="Jump to section">↵</a></div>
   </div>

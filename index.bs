@@ -665,8 +665,18 @@ The semantics of a query surface is as follows:
 - Blank nodes on a query surface are interpreted as a logical universals. Triples matching these tripels will be exposed to external applications.
 
 <div class="example">
-A query surface that exposes all the triples on the default surface. The query below
-is equivalent to the SPARQL query:
+A query surface that exposes all the triples on the default surface. 
+
+```(turtle)
+@prefix : <http://example.org/ns#> .
+@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+
+(_:S _:P _:O) log:onQuerySurface {
+    _:S _:P _:O .
+} .
+```
+
+The query above is equivalent to the result of a SPARQL query:
 
 ```
 CONSTRUCT {
@@ -677,20 +687,10 @@ WHERE {
 }
 ```
 
-Or in RDF Surfaces:
-
-```(turtle)
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
-
-(_:S _:P _:O) log:onQuerySurface {
-    _:S _:P _:O .
-} .
-```
 </div>
 
 <div class="example">
-Return triples on a negative and the triples on neutral surface 
+Return the (single) triple on a negative surface 
 
 ```(turtle)
 @prefix : <http://example.org/ns#> .
@@ -701,17 +701,37 @@ Return triples on a negative and the triples on neutral surface
         _:S _:P _:O .
     } .
 } .
+```
 
-(_:S _:P _:O) log:onQuerySurface {
-    () log:onNeutralSurface {
-        _:S _:P _:O .
+The query above is equivalent to the result of a SPARQL query:
+
+```
+CONSTRUCT {
+    () log:onNegativeSurface {
+        ?S ?P ?O .
     } .
+}
+WHERE {
+    () log:onNegativeSurface {
+        ?S ?P ?O .
+    } .
+}
+```
+
+To return all triples on the negative surface use the query surface:
+
+```(turtle)
+@prefix : <http://example.org/ns#> .
+@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+
+(_:G) log:onQuerySurface {
+    () log:onNegativeSurface _:G .
 } .
 ```
 </div>
 
 <div class="example">
-Return triples on a negatice surface about `http://example.org/ns#Alice`.
+Return triples on a negative surface about `http://example.org/ns#Alice`.
 
 ```(turtle)
 @prefix : <http://example.org/ns#> .
@@ -738,6 +758,16 @@ Issue: TODO
 Issue: TODO
 
 ## Blank nodes ## {#BlankNodes}
+
+Issue: TODO
+
+Fuse {#Fuse}
+============
+
+Issue: TODO
+
+RDF Star annotations {#RDF Star}
+================
 
 Issue: TODO
 
