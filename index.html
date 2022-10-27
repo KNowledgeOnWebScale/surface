@@ -1487,7 +1487,7 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version afdea9b3f, updated Fri Oct 21 14:30:36 2022 -0700" name="generator">
+  <meta content="Bikeshed version 63e66730b, updated Tue Oct 25 12:35:05 2022 -0700" name="generator">
 <style>
 table {
   margin: 25px auto;
@@ -2046,20 +2046,20 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">RDF Surfaces Primer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2022-10-23">23 October 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2022-10-27">27 October 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>Issue Tracking:
      <dd><a href="#issues-index">Inline In Spec</a>
      <dt class="editor">Editors:
-     <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:jos.deroo@ugent.be">Jos De Roo</a> (<span class="p-org org"><a href="https://knows.idlab.ugent.be/team/">KNoWS</a></span>)
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:patrick.hochstenbach@ugent.be">Patrick Hochstenbach</a> (<span class="p-org org"><a href="https://knows.idlab.ugent.be/team/">KNoWS</a></span>)
+     <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:jos.deroo@ugent.be">Jos De Roo</a> (<span class="p-org org"><a href="https://knows.idlab.ugent.be/team/">KNoWS</a></span>)
     </dl>
    </div>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" height="15" src="https://licensebuttons.net/p/zero/1.0/80x15.png" width="80"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 23 October 2022,
+In addition, as of 27 October 2022,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -2081,10 +2081,9 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#PositiveSurface"><span class="secno">3.1</span> <span class="content">Positive Surface</span></a>
       <li><a href="#NegativeSurface"><span class="secno">3.2</span> <span class="content">Negative Surface</span></a>
       <li><a href="#QuerySurface"><span class="secno">3.3</span> <span class="content">Query Surface</span></a>
-      <li><a href="#AskSurface"><span class="secno">3.4</span> <span class="content">Ask Surface</span></a>
-      <li><a href="#NeutralSurface"><span class="secno">3.5</span> <span class="content">Neutral Surface</span></a>
-      <li><a href="#OtherSurface"><span class="secno">3.6</span> <span class="content">Other Surfaces</span></a>
-      <li><a href="#BlankNodes"><span class="secno">3.7</span> <span class="content">Blank nodes</span></a>
+      <li><a href="#NeutralSurface"><span class="secno">3.4</span> <span class="content">Neutral Surface</span></a>
+      <li><a href="#OtherSurface"><span class="secno">3.5</span> <span class="content">Other Surfaces</span></a>
+      <li><a href="#BlankNodes"><span class="secno">3.6</span> <span class="content">Blank nodes</span></a>
      </ol>
     <li><a href="#CoherentLogic"><span class="secno">4</span> <span class="content">Coherent logic</span></a>
     <li><a href="#Examples"><span class="secno">5</span> <span class="content">Examples</span></a>
@@ -2369,9 +2368,6 @@ special semantics:</p>
      <tr>
       <td><code>log:onQuerySurface</code> 
       <td>Query surfaces use the RDF graph on them as a query 
-     <tr>
-      <td><code>log:onAskSurface</code> 
-      <td>Ask surfaces use the RDF graph on them as a boolean query 
    </table>
    <p>A surface can contain zero or more other surfaces. These surfaces are then nested.
 Nested surfaces can share the same <a data-link-type="biblio" href="#biblio-uri">[URI]</a>-s and literals (by copying the data), 
@@ -2595,20 +2591,80 @@ OR Charly is a person".
    </ul>
    <p>Negative surfaces should also follow the law of double negation elimination: <code>P = NOT(NOT(P))</code>.</p>
    <h3 class="heading settled" data-level="3.3" id="QuerySurface"><span class="secno">3.3. </span><span class="content">Query Surface</span><a class="self-link" href="#QuerySurface"></a></h3>
-   <p>A negative surface containing a query surface is treated as a backward rule.</p>
+   <p>A query surface is used to return to external applications a single (positive) RDF Surface
+specified by a graph template. The result is an RDF Surface formed by taking each query 
+solution in the solution sequence, substituting for the variables in the graph template, 
+and combining the triples into a single RDF Surface by set union.</p>
+   <p>The semantics of a query surface is as follows:</p>
+   <ul>
+    <li data-md>
+     <p>An empty query surface is an empty template which doesn’t match any triple on the default surface.</p>
+    <li data-md>
+     <p>A query surface which contains one or more triples, will expose that triple to external applications when the default surface contains the triples.</p>
+    <li data-md>
+     <p>Blank nodes on a query surface are interpreted as a logical universals. Triples matching these tripels will be exposed to external applications.</p>
+   </ul>
+   <div class="example" id="example-2af3467a">
+    <a class="self-link" href="#example-2af3467a"></a> A query surface that exposes all the triples on the default surface. The query below
+is equivalent to the SPARQL query: 
+<pre>CONSTRUCT {
+    ?S ?P ?O .
+}
+WHERE {
+    ?S ?P ?O .
+}
+</pre>
+    <p>Or in RDF Surfaces:</p>
+<pre class="language-(turtle)">@prefix : &lt;http://example.org/ns#> .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+
+(_:S _:P _:O) log:onQuerySurface {
+    _:S _:P _:O .
+} .
+</pre>
+   </div>
+   <div class="example" id="example-ad093a89">
+    <a class="self-link" href="#example-ad093a89"></a> Return triples on a negative and the triples on neutral surface 
+<pre class="language-(turtle)">@prefix : &lt;http://example.org/ns#> .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+
+(_:S _:P _:O) log:onQuerySurface {
+    () log:onNegativeSurface {
+        _:S _:P _:O .
+    } .
+} .
+
+(_:S _:P _:O) log:onQuerySurface {
+    () log:onNeutralSurface {
+        _:S _:P _:O .
+    } .
+} .
+</pre>
+   </div>
+   <div class="example" id="example-594b2187">
+    <a class="self-link" href="#example-594b2187"></a> Return triples on a negatice surface about <code>http://example.org/ns#Alice</code>. 
+<pre class="language-(turtle)">@prefix : &lt;http://example.org/ns#> .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+
+(_:P _:O) log:onQuerySurface {
+    () log:onNegativeSurface {
+        :Alice _:P _:O .
+    } .
+} .
+
+</pre>
+   </div>
+   <p class="note" role="note"><span>Note:</span> A negative surface containing a query surface is treated as a backward rule.</p>
+   <h3 class="heading settled" data-level="3.4" id="NeutralSurface"><span class="secno">3.4. </span><span class="content">Neutral Surface</span><a class="self-link" href="#NeutralSurface"></a></h3>
    <p class="issue" id="issue-b7b1e314"><a class="self-link" href="#issue-b7b1e314"></a> TODO</p>
-   <h3 class="heading settled" data-level="3.4" id="AskSurface"><span class="secno">3.4. </span><span class="content">Ask Surface</span><a class="self-link" href="#AskSurface"></a></h3>
+   <h3 class="heading settled" data-level="3.5" id="OtherSurface"><span class="secno">3.5. </span><span class="content">Other Surfaces</span><a class="self-link" href="#OtherSurface"></a></h3>
    <p class="issue" id="issue-b7b1e314①"><a class="self-link" href="#issue-b7b1e314①"></a> TODO</p>
-   <h3 class="heading settled" data-level="3.5" id="NeutralSurface"><span class="secno">3.5. </span><span class="content">Neutral Surface</span><a class="self-link" href="#NeutralSurface"></a></h3>
+   <h3 class="heading settled" data-level="3.6" id="BlankNodes"><span class="secno">3.6. </span><span class="content">Blank nodes</span><a class="self-link" href="#BlankNodes"></a></h3>
    <p class="issue" id="issue-b7b1e314②"><a class="self-link" href="#issue-b7b1e314②"></a> TODO</p>
-   <h3 class="heading settled" data-level="3.6" id="OtherSurface"><span class="secno">3.6. </span><span class="content">Other Surfaces</span><a class="self-link" href="#OtherSurface"></a></h3>
-   <p class="issue" id="issue-b7b1e314③"><a class="self-link" href="#issue-b7b1e314③"></a> TODO</p>
-   <h3 class="heading settled" data-level="3.7" id="BlankNodes"><span class="secno">3.7. </span><span class="content">Blank nodes</span><a class="self-link" href="#BlankNodes"></a></h3>
-   <p class="issue" id="issue-b7b1e314④"><a class="self-link" href="#issue-b7b1e314④"></a> TODO</p>
    <h2 class="heading settled" data-level="4" id="CoherentLogic"><span class="secno">4. </span><span class="content">Coherent logic</span><a class="self-link" href="#CoherentLogic"></a></h2>
-   <p class="issue" id="issue-b7b1e314⑤"><a class="self-link" href="#issue-b7b1e314⑤"></a> TODO</p>
+   <p class="issue" id="issue-b7b1e314③"><a class="self-link" href="#issue-b7b1e314③"></a> TODO</p>
    <h2 class="heading settled" data-level="5" id="Examples"><span class="secno">5. </span><span class="content">Examples</span><a class="self-link" href="#Examples"></a></h2>
-   <p class="issue" id="issue-b7b1e314⑥"><a class="self-link" href="#issue-b7b1e314⑥"></a> TODO</p>
+   <p class="issue" id="issue-b7b1e314④"><a class="self-link" href="#issue-b7b1e314④"></a> TODO</p>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
@@ -2774,6 +2830,4 @@ OR Charly is a person".
    <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314②" title="Jump to section">↵</a></div>
    <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314③" title="Jump to section">↵</a></div>
    <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314④" title="Jump to section">↵</a></div>
-   <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314⑤" title="Jump to section">↵</a></div>
-   <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314⑥" title="Jump to section">↵</a></div>
   </div>
