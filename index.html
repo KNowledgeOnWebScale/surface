@@ -2046,7 +2046,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">RDF Surfaces Primer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2022-10-27">27 October 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2022-11-05">5 November 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>Issue Tracking:
@@ -2059,7 +2059,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" height="15" src="https://licensebuttons.net/p/zero/1.0/80x15.png" width="80"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 27 October 2022,
+In addition, as of 5 November 2022,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -2124,14 +2124,16 @@ new scratches need to be made.</p>
     <a class="self-link" href="#example-d0eadebe"></a> A <em>positive surface</em> with one triple containing a blank node <code>[] a :City</code>, which means <em>"There is something that is a city"</em>. 
     <p><img alt="blank surface" src="images/blank_node.svg" width="300"></p>
    </div>
-   <div class="example" id="example-09cad3aa">
-    <a class="self-link" href="#example-09cad3aa"></a> Two <em>positive surfaces</em>, one with the triple <code>[] a :City</code> (which means <em>"There is something that is a city"</em>),
+   <div class="example" id="example-0a1c769e">
+    <a class="self-link" href="#example-0a1c769e"></a> Two <em>positive surfaces</em>, one with the triple <code>[] a :City</code> (which means <em>"There is something that is a city"</em>),
 and another one with the triple <code>[] a :Cat</code> (which means <em>"There is something is a cat"</em>). 
     <p><img alt="blank surface" src="images/two_sheets.svg" width="600"></p>
     <p>One can copy these two RDFs graphs to a new surface. This will contain two graphs with
 two blank nodes:</p>
-<pre>[] a :City .
-[] a :Cat .
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+
+<c- p>[]</c-> <c- b>a</c-> <c- p>:</c-><c- f>City</c-> <c- p>.</c->
+<c- p>[]</c-> <c- b>a</c-> <c- p>:</c-><c- f>Cat</c-> <c- p>.</c->
 </pre>
     <p>This means, "There is something that is a city AND There is something that is a cat."</p>
     <p><img alt="blank surface" src="images/city_cat.svg" width="300"></p>
@@ -2229,75 +2231,75 @@ surface (so that they become existentials or universals depeding on the type
 of surface).</p>
    <div class="example" id="example-42571ee9">
     <a class="self-link" href="#example-42571ee9"></a> <em>"Something is a city"</em> in Notation3 . 
-<pre>@prefix : &lt;http://example.org/ns#> .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
 
-(_:X) log:onPositiveSurface {
-    _:X a :City .
-} .
+<c- p>(</c->_<c- p>:</c-><c- f>X</c-><c- p>)</c-> <c- nn>log</c-><c- p>:</c-><c- f>onPositiveSurface</c-> <c- p>{</c->
+    _<c- p>:</c-><c- f>X</c-> <c- b>a</c-> <c- p>:</c-><c- f>City</c-> <c- p>.</c->
+<c- p>}</c-> <c- p>.</c->
 </pre>
    </div>
    <div class="example" id="example-e521d8c1">
     <a class="self-link" href="#example-e521d8c1"></a> <em>"Something is a city"</em> in Notation3 , version 2 : because the default surface 
 is defined as a positive surface. 
-<pre>@prefix : &lt;http://example.org/ns#> .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
 
-_:X a :City .
+_<c- p>:</c-><c- f>X</c-> <c- b>a</c-> <c- p>:</c-><c- f>City</c-> <c- p>.</c->
 </pre>
    </div>
    <div class="example" id="example-2a1c53c6">
     <a class="self-link" href="#example-2a1c53c6"></a> <em>"Nothing is a problem"</em> in Notation3 . 
-<pre>@prefix : &lt;http://example.org/ns#> .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
 
-(_:X) log:onNegativeSurface {
-    _:X a :Problem .
-} .
+<c- p>(</c->_<c- p>:</c-><c- f>X</c-><c- p>)</c-> <c- nn>log</c-><c- p>:</c-><c- f>onNegativeSurface</c-> <c- p>{</c->
+    _<c- p>:</c-><c- f>X</c-> <c- b>a</c-> <c- p>:</c-><c- f>Problem</c-> <c- p>.</c->
+<c- p>}</c-> <c- p>.</c->
 </pre>
    </div>
    <div class="example" id="example-3507dd11">
     <a class="self-link" href="#example-3507dd11"></a> <em>"All cats are alive OR dead"</em> in Notation3. These are Schrödinger cats: logical OR can
 mean alive, or dead, or both alive and dead. 
-<pre>@prefix : &lt;http://example.org/ns#> .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
 
-(_:X) log:onNegativeSurface {
-    _:X a :Cat .
+<c- p>(</c->_<c- p>:</c-><c- f>X</c-><c- p>)</c-> <c- nn>log</c-><c- p>:</c-><c- f>onNegativeSurface</c-> <c- p>{</c->
+    _<c- p>:</c-><c- f>X</c-> <c- b>a</c-> <c- p>:</c-><c- f>Cat</c-> <c- p>.</c->
 
-    () log:onNegativeSurface {
-        _:X :is :Alive .
-    } .
+    <c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onNegativeSurface</c-> <c- p>{</c->
+        _<c- p>:</c-><c- f>X</c-> <c- p>:</c-><c- f>is</c-> <c- p>:</c-><c- f>Alive</c-> <c- p>.</c->
+    <c- p>}</c-> <c- p>.</c->
 
-    () log:onNegativeSurface {
-        _:X :is :Dead .
-    } .
-} .
+    <c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onNegativeSurface</c-> <c- p>{</c->
+        _<c- p>:</c-><c- f>X</c-> <c- p>:</c-><c- f>is</c-> <c- p>:</c-><c- f>Dead</c-> <c- p>.</c->
+    <c- p>}</c-> <c- p>.</c->
+<c- p>}</c-> <c- p>.</c->
 </pre>
    </div>
    <div class="example" id="example-5508fab5">
     <a class="self-link" href="#example-5508fab5"></a> <em>"If any cat X is alive, then X says meow"</em> in Notation3 . 
-<pre>@prefix : &lt;http://example.org/ns#> .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
 
-(_:X) log:onNegativeSurface {
-    _:X a :Cat ;
-        :is :Alive .
-    () log:onNegativeSurface {
-        _:X :says :Meow .
-    } .
-} .
+<c- p>(</c->_<c- p>:</c-><c- f>X</c-><c- p>)</c-> <c- nn>log</c-><c- p>:</c-><c- f>onNegativeSurface</c-> <c- p>{</c->
+    _<c- p>:</c-><c- f>X</c-> <c- b>a</c-> <c- p>:</c-><c- f>Cat</c-> <c- p>;</c->
+        <c- p>:</c-><c- f>is</c-> <c- p>:</c-><c- f>Alive</c-> <c- p>.</c->
+    <c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onNegativeSurface</c-> <c- p>{</c->
+        _<c- p>:</c-><c- f>X</c-> <c- p>:</c-><c- f>says</c-> <c- p>:</c-><c- f>Meow</c-> <c- p>.</c->
+    <c- p>}</c-> <c- p>.</c->
+<c- p>}</c-> <c- p>.</c->
 </pre>
    </div>
    <p>A surface can be queried by providing a query surface. The results of this
 query will be the final result the reasoning engine interpreting the surfaces.</p>
-   <div class="example" id="example-9aca1538">
-    <a class="self-link" href="#example-9aca1538"></a> 
+   <div class="example" id="example-919ad385">
+    <a class="self-link" href="#example-919ad385"></a> 
     <p><code>:Ghent a :City</code> is a triple on the implicit positive surface. The two nested
 negative surfaces express that for any subject <code>_:S</code> on the positive service
 that is a <code>:City</code>, it implies that <code>_:S</code> needs be be also a <code>:HumanCommunity</code>.</p>
-<pre class="highlight"><c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-><c- p>.</c->
-<c- k>@prefix</c-> <c- nn>ex:</c-> <c- g>&lt;http://example.org/ns#></c-><c- p>.</c->
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>ex:</c-> <c- g>&lt;http://example.org/ns#></c-><c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-><c- p>.</c->
 
 <c- nn>ex</c-><c- p>:</c-><c- f>Ghent</c-> <c- b>a</c-> <c- nn>ex</c-><c- p>:</c-><c- f>City</c-><c- p>.</c->
 
@@ -2374,23 +2376,23 @@ special semantics:</p>
    <p>A surface can contain zero or more other surfaces. These surfaces are then nested.
 Nested surfaces can share the same <a data-link-type="biblio" href="#biblio-uri">[URI]</a>-s and literals (by copying the data), 
 but can’t share blank nodes.</p>
-   <div class="example" id="example-b541515c">
-    <a class="self-link" href="#example-b541515c"></a> A <code>ex:myFirstSurface</code> is created which contains two triples and a nested surface. The
+   <div class="example" id="example-a21bdf93">
+    <a class="self-link" href="#example-a21bdf93"></a> A <code>ex:myFirstSurface</code> is created which contains two triples and a nested surface. The
 blank node <code>_:X</code> is part of <code>ex:myFirstSurface</code>. On the nested surface <code>ex:mySecondSurface</code> the blank node <code>_:X</code> is the node from <code>ex:myFirstSurface</code>, the
 blank node <code>_:Y</code> is created on <code>ex:mySecondSurface</code>. 
-<pre>@prefix ex: &lt;http://example.org/ns#> .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
 
-(_:X) ex:myFirstSurface {
+<c- p>(</c->_<c- p>:</c-><c- f>X</c-><c- p>)</c-> <c- nn>ex</c-><c- p>:</c-><c- f>myFirstSurface</c-> <c- p>{</c->
 
-    ex:Statement1 a ex:NiceStatement .
-    _:X a ex:OtherStatement .
+    <c- nn>ex</c-><c- p>:</c-><c- f>Statement1</c-> <c- b>a</c-> <c- nn>ex</c-><c- p>:</c-><c- f>NiceStatement</c-> <c- p>.</c->
+    _<c- p>:</c-><c- f>X</c-> <c- b>a</c-> <c- nn>ex</c-><c- p>:</c-><c- f>OtherStatement</c-> <c- p>.</c->
      
-    (_:Y) ex:mySecondSurface {
-        _:X ex:is true . 
-        _:Y a ex:AnotherStatement .
-    }.
-} .
+    <c- p>(</c->_<c- p>:</c-><c- f>Y</c-><c- p>)</c-> <c- nn>ex</c-><c- p>:</c-><c- f>mySecondSurface</c-> <c- p>{</c->
+        _<c- p>:</c-><c- f>X</c-> <c- nn>ex</c-><c- p>:</c-><c- f>is</c-> <c- l>true</c-> <c- p>.</c-> 
+        _<c- p>:</c-><c- f>Y</c-> <c- b>a</c-> <c- nn>ex</c-><c- p>:</c-><c- f>AnotherStatement</c-> <c- p>.</c->
+    <c- p>}.</c->
+<c- p>}</c-> <c- p>.</c->
 </pre>
    </div>
    <h3 class="heading settled" data-level="3.1" id="PositiveSurface"><span class="secno">3.1. </span><span class="content">Positive Surface</span><a class="self-link" href="#PositiveSurface"></a></h3>
@@ -2399,18 +2401,18 @@ This is the current default interperation of <a href="https://www.w3.org/TR/rdf1
 When no surfaces are provided, an implicit positive surface is assumed in the RDF document.</p>
    <div class="example" id="example-7fc89117">
     <a class="self-link" href="#example-7fc89117"></a> The two surfaces below are equal. 
-<pre>@prefix : &lt;http://example.org/ns#> .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
 
-() log:onPositiveSurface {
-    :Alice a :Person .
-}
+<c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onPositiveSurface</c-> <c- p>{</c->
+    <c- p>:</c-><c- f>Alice</c-> <c- b>a</c-> <c- p>:</c-><c- f>Person</c-> <c- p>.</c->
+<c- p>}</c->
 </pre>
     <p>and</p>
-<pre class="language-(turtle)">@prefix : &lt;http://example.org/ns#> .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
 
-:Alice a :Person .
+<c- p>:</c-><c- f>Alice</c-> <c- b>a</c-> <c- p>:</c-><c- f>Person</c-> <c- p>.</c->
 </pre>
    </div>
    <p>The semantics of a positive surface is interpreted as a logical truth:</p>
@@ -2422,26 +2424,27 @@ When no surfaces are provided, an implicit positive surface is assumed in the RD
     <li data-md>
      <p>When two or more triples are placed on a positive surface, then the surface is valid when the logical conjunction of all triples is true.</p>
    </ul>
-   <div class="example" id="example-92644cca">
-    <a class="self-link" href="#example-92644cca"></a> The surface below should be interpreted as: "Alice is a person and knows Bob, and Bob is a 
+   <div class="example" id="example-47d4d8a5">
+    <a class="self-link" href="#example-47d4d8a5"></a> The surface below should be interpreted as: "Alice is a person and knows Bob, and Bob is a 
 person that knows Alice". 
     <p>As a logical statement:</p>
 <pre>:Alice a :Person AND 
 :Alice :knows :Bob AND (
   :Bob a :Person AND 
   :Bob :knows :Alice
+)
 </pre>
     <p>As RDF Surface:</p>
-<pre class="language-(turtle)">@prefix : &lt;http://example.org/ns#> .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
 
-:Alice a :Person .
-:Alice :knows :Bob .
+<c- p>:</c-><c- f>Alice</c-> <c- b>a</c-> <c- p>:</c-><c- f>Person</c-> <c- p>.</c->
+<c- p>:</c-><c- f>Alice</c-> <c- p>:</c-><c- f>knows</c-> <c- p>:</c-><c- f>Bob</c-> <c- p>.</c->
 
-() log:onPositiveSurface {
-    :Bob a :Person .
-    :Bob :knows :Alice .
-} .
+<c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onPositiveSurface</c-> <c- p>{</c->
+    <c- p>:</c-><c- f>Bob</c-> <c- b>a</c-> <c- p>:</c-><c- f>Person</c-> <c- p>.</c->
+    <c- p>:</c-><c- f>Bob</c-> <c- p>:</c-><c- f>knows</c-> <c- p>:</c-><c- f>Alice</c-> <c- p>.</c->
+<c- p>}</c-> <c- p>.</c->
 </pre>
    </div>
    <p>When a blank node is marked on a positive surface, then it is interpreted as an existential
@@ -2457,16 +2460,16 @@ knows Alice".
 )
 </pre>
     <p>As RDF Surface:</p>
-<pre class="language-(turtle)">@prefix : &lt;http://example.org/ns#> .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
 
-:Alice a :Person .
-:Alice :knows :Bob .
+<c- p>:</c-><c- f>Alice</c-> <c- b>a</c-> <c- p>:</c-><c- f>Person</c-> <c- p>.</c->
+<c- p>:</c-><c- f>Alice</c-> <c- p>:</c-><c- f>knows</c-> <c- p>:</c-><c- f>Bob</c-> <c- p>.</c->
 
-(_:X) log:onPositiveSurface {
-    _:X a :Person .
-    _:X :knows :Alice .
-} .
+<c- p>(</c->_<c- p>:</c-><c- f>X</c-><c- p>)</c-> <c- nn>log</c-><c- p>:</c-><c- f>onPositiveSurface</c-> <c- p>{</c->
+    _<c- p>:</c-><c- f>X</c-> <c- b>a</c-> <c- p>:</c-><c- f>Person</c-> <c- p>.</c->
+    _<c- p>:</c-><c- f>X</c-> <c- p>:</c-><c- f>knows</c-> <c- p>:</c-><c- f>Alice</c-> <c- p>.</c->
+<c- p>}</c-> <c- p>.</c->
 </pre>
    </div>
    <h3 class="heading settled" data-level="3.2" id="NegativeSurface"><span class="secno">3.2. </span><span class="content">Negative Surface</span><a class="self-link" href="#NegativeSurface"></a></h3>
@@ -2492,16 +2495,16 @@ not a person that knows Alice".
 )
 </pre>
     <p>As RDF Surface:</p>
-<pre class="language-(turtle)">@prefix : &lt;http://example.org/ns#> .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
 
-:Alice a :Person .
-:Alice :knows :Bob .
+<c- p>:</c-><c- f>Alice</c-> <c- b>a</c-> <c- p>:</c-><c- f>Person</c-> <c- p>.</c->
+<c- p>:</c-><c- f>Alice</c-> <c- p>:</c-><c- f>knows</c-> <c- p>:</c-><c- f>Bob</c-> <c- p>.</c->
 
-() log:onNegativeSurface {
-    :Bob a :Person .
-    :Bob :knows :Alice .
-} .
+<c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onNegativeSurface</c-> <c- p>{</c->
+    <c- p>:</c-><c- f>Bob</c-> <c- b>a</c-> <c- p>:</c-><c- f>Person</c-> <c- p>.</c->
+    <c- p>:</c-><c- f>Bob</c-> <c- p>:</c-><c- f>knows</c-> <c- p>:</c-><c- f>Alice</c-> <c- p>.</c->
+<c- p>}</c-> <c- p>.</c->
 </pre>
    </div>
    <p>When a blank node is marked on a negative surface, then it should be interpreted as an existential
@@ -2529,16 +2532,16 @@ and there isn’t a person that knows Alice".
 )
 </pre>
     <p>As RDF Surface:</p>
-<pre class="language-(turtle)">@prefix : &lt;http://example.org/ns#> .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
 
-:Alice a :Person .
-:Alice :knows :Bob .
+<c- p>:</c-><c- f>Alice</c-> <c- b>a</c-> <c- p>:</c-><c- f>Person</c-> <c- p>.</c->
+<c- p>:</c-><c- f>Alice</c-> <c- p>:</c-><c- f>knows</c-> <c- p>:</c-><c- f>Bob</c-> <c- p>.</c->
 
-(_:X) log:onNegativeSurface {
-    _:X a :Person .
-    _:X :knows :Alice .
-} .
+<c- p>(</c->_<c- p>:</c-><c- f>X</c-><c- p>)</c-> <c- nn>log</c-><c- p>:</c-><c- f>onNegativeSurface</c-> <c- p>{</c->
+    _<c- p>:</c-><c- f>X</c-> <c- b>a</c-> <c- p>:</c-><c- f>Person</c-> <c- p>.</c->
+    _<c- p>:</c-><c- f>X</c-> <c- p>:</c-><c- f>knows</c-> <c- p>:</c-><c- f>Alice</c-> <c- p>.</c->
+<c- p>}</c-> <c- p>.</c->
 </pre>
    </div>
    <p>When two or more negative surfaces are nested in a parent negative surface, then it should
@@ -2559,25 +2562,25 @@ OR Charly is a person".
 )
 </pre>
     <p>As RDF Surface:</p>
-<pre class="language-(turtle)">@prefix : &lt;http://example.org/ns#> .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
 
-:Alice a :Person .
-:Alice :knows :Bob .
+<c- p>:</c-><c- f>Alice</c-> <c- b>a</c-> <c- p>:</c-><c- f>Person</c-> <c- p>.</c->
+<c- p>:</c-><c- f>Alice</c-> <c- p>:</c-><c- f>knows</c-> <c- p>:</c-><c- f>Bob</c-> <c- p>.</c->
 
-() log:onNegativeSurface {
-    () log:onNegativeSurface {
-      :Alice a :Person .
-    } .
+<c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onNegativeSurface</c-> <c- p>{</c->
+    <c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onNegativeSurface</c-> <c- p>{</c->
+      <c- p>:</c-><c- f>Alice</c-> <c- b>a</c-> <c- p>:</c-><c- f>Person</c-> <c- p>.</c->
+    <c- p>}</c-> <c- p>.</c->
 
-    () log:onNegativeSurface {
-      :Bob a :Person .
-    } .
+    <c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onNegativeSurface</c-> <c- p>{</c->
+      <c- p>:</c-><c- f>Bob</c-> <c- b>a</c-> <c- p>:</c-><c- f>Person</c-> <c- p>.</c->
+    <c- p>}</c-> <c- p>.</c->
 
-    () log:onNegativeSurface {
-      :Charly a :Person .
-    } .
-}.
+    <c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onNegativeSurface</c-> <c- p>{</c->
+      <c- p>:</c-><c- f>Charly</c-> <c- b>a</c-> <c- p>:</c-><c- f>Person</c-> <c- p>.</c->
+    <c- p>}</c-> <c- p>.</c->
+<c- p>}.</c->
 </pre>
    </div>
    <p>With combinations of AND and NOT other logical truth function can be build. E.g.</p>
@@ -2602,88 +2605,184 @@ and combining the triples into a single RDF Surface by set union.</p>
     <li data-md>
      <p>An empty query surface is an empty template which doesn’t match any triple on the default surface.</p>
     <li data-md>
-     <p>A query surface which contains one or more triples, will expose that triple to external applications when the default surface contains the triples.</p>
+     <p>A query surface which contains one or more triples, will expose those triples to external applications when the default surface contains the triples.</p>
     <li data-md>
-     <p>Blank nodes on a query surface are interpreted as a logical universals. Triples matching these tripels will be exposed to external applications.</p>
+     <p>Blank nodes on a query surface are interpreted as a logical universals. Triples using these blank node universals will be exposed to external applications.</p>
    </ul>
    <div class="example" id="example-06abf4da">
     <a class="self-link" href="#example-06abf4da"></a> A query surface that exposes all the triples on the default surface. 
-<pre class="language-(turtle)">@prefix : &lt;http://example.org/ns#> .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
 
-(_:S _:P _:O) log:onQuerySurface {
-    _:S _:P _:O .
-} .
+<c- p>(</c->_<c- p>:</c-><c- f>S</c-> _<c- p>:</c-><c- f>P</c-> _<c- p>:</c-><c- f>O</c-><c- p>)</c-> <c- nn>log</c-><c- p>:</c-><c- f>onQuerySurface</c-> <c- p>{</c->
+    _<c- p>:</c-><c- f>S</c-> _<c- p>:</c-><c- f>P</c-> _<c- p>:</c-><c- f>O</c-> <c- p>.</c->
+<c- p>}</c-> <c- p>.</c->
 </pre>
     <p>The query above is equivalent to the result of a SPARQL query:</p>
-<pre>CONSTRUCT {
-    ?S ?P ?O .
-}
-WHERE {
-    ?S ?P ?O .
-}
+<pre class="highlight">CONSTRUCT <c- p>{</c->
+    ?S ?P ?O <c- p>.</c->
+<c- p>}</c->
+WHERE <c- p>{</c->
+    ?S ?P ?O <c- p>.</c->
+<c- p>}</c->
 </pre>
    </div>
-   <div class="example" id="example-c4eba7c6">
-    <a class="self-link" href="#example-c4eba7c6"></a> Return the (single) triple on a negative surface 
-<pre class="language-(turtle)">@prefix : &lt;http://example.org/ns#> .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+   <div class="example" id="example-03059653">
+    <a class="self-link" href="#example-03059653"></a> Return the MyExample surface which only contains one triple: 
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
 
-(_:S _:P _:O) log:onQuerySurface {
-    () log:onNegativeSurface {
-        _:S _:P _:O .
-    } .
-} .
+<c- p>(</c->_<c- p>:</c-><c- f>S</c-> _<c- p>:</c-><c- f>P</c-> _<c- p>:</c-><c- f>O</c-><c- p>)</c-> <c- nn>log</c-><c- p>:</c-><c- f>onQuerySurface</c-> <c- p>{</c->
+    <c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onMyExampleSurface</c-> <c- p>{</c->
+        _<c- p>:</c-><c- f>S</c-> _<c- p>:</c-><c- f>P</c-> _<c- p>:</c-><c- f>O</c-> <c- p>.</c->
+    <c- p>}</c-> <c- p>.</c->
+<c- p>}</c-> <c- p>.</c->
 </pre>
     <p>The query above is equivalent to the result of a SPARQL query:</p>
-<pre>CONSTRUCT {
-    () log:onNegativeSurface {
-        ?S ?P ?O .
-    } .
-}
-WHERE {
-    () log:onNegativeSurface {
-        ?S ?P ?O .
-    } .
-}
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
+
+CONSTRUCT <c- p>{</c->
+    <c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onMyExampleSurface</c-> <c- p>{</c->
+        ?S ?P ?O <c- p>.</c->
+    <c- p>}</c-> <c- p>.</c->
+<c- p>}</c->
+WHERE <c- p>{</c->
+    <c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onMyExampleSurface</c-> <c- p>{</c->
+        ?S ?P ?O <c- p>.</c->
+    <c- p>}</c-> <c- p>.</c->
+<c- p>}</c->
 </pre>
-    <p>To return all triples on the negative surface use the query surface:</p>
-<pre class="language-(turtle)">@prefix : &lt;http://example.org/ns#> .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
+    <p>Return all triples on MyExample surfaces:</p>
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
 
-(_:G) log:onQuerySurface {
-    () log:onNegativeSurface _:G .
-} .
-</pre>
-   </div>
-   <div class="example" id="example-e58288b9">
-    <a class="self-link" href="#example-e58288b9"></a> Return triples on a negative surface about <code>http://example.org/ns#Alice</code>. 
-<pre class="language-(turtle)">@prefix : &lt;http://example.org/ns#> .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#> .
-
-(_:P _:O) log:onQuerySurface {
-    () log:onNegativeSurface {
-        :Alice _:P _:O .
-    } .
-} .
-
+<c- p>(</c->_<c- p>:</c-><c- f>G</c-><c- p>)</c-> <c- nn>log</c-><c- p>:</c-><c- f>onQuerySurface</c-> <c- p>{</c->
+    <c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onMyExampleSurface</c-> _<c- p>:</c-><c- f>G</c-> <c- p>.</c->
+<c- p>}</c-> <c- p>.</c->
 </pre>
    </div>
-   <p class="note" role="note"><span>Note:</span> A negative surface containing a query surface is treated as a backward rule.</p>
+   <div class="example" id="example-ae4430ef">
+    <a class="self-link" href="#example-ae4430ef"></a> Return all negative surfaces (without blank node graffiti) which contain one single triple about <code>http://example.org/ns#Alice</code>. 
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
+
+<c- p>(</c->_<c- p>:</c-><c- f>P</c-> _<c- p>:</c-><c- f>O</c-><c- p>)</c-> <c- nn>log</c-><c- p>:</c-><c- f>onQuerySurface</c-> <c- p>{</c->
+    <c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onNegativeSurface</c-> <c- p>{</c->
+        <c- p>:</c-><c- f>Alice</c-> _<c- p>:</c-><c- f>P</c-> _<c- p>:</c-><c- f>O</c-> <c- p>.</c->
+    <c- p>}</c-> <c- p>.</c->
+<c- p>}</c-> <c- p>.</c->
+</pre>
+   </div>
    <h3 class="heading settled" data-level="3.4" id="NeutralSurface"><span class="secno">3.4. </span><span class="content">Neutral Surface</span><a class="self-link" href="#NeutralSurface"></a></h3>
-   <p class="issue" id="issue-b7b1e314"><a class="self-link" href="#issue-b7b1e314"></a> TODO</p>
+   <p>A neutral surface makes no claims at all about the graphs written on it. Neutral surfaces can be used, for instance,
+to store information about RDF Collections. Triples on a neutral surface will not be "executed" 
+in any way by a reasoner. Unless, the triples are copies to a positive or negative surface.</p>
+   <p>Nesting a neutral surface in another neutral surface will create a nesting of two surfaces.</p>
+   <p>Writing blank node graffiti on a neutral surface doesn’t have specific semantic meaning.</p>
+   <div class="example" id="example-3e84fef3">
+    <a class="self-link" href="#example-3e84fef3"></a> The surface below contains on the (default) positive surface factual information about <code>http://example.org/ns#Alice</code> and <code>http://example.org/ns#Bob</code> and two books: <code>http://example.org/ns#Book1</code> and <code>http://example.org/ns#Book2</code>. The positive surface
+also contains structural information to group Books and Authors in an arbitrary author and
+book list. 
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>ldp:</c-> <c- g>&lt;http://www.w3.org/ns/ldp#></c-> <c- p>.</c->
+
+<c- p>:</c-><c- f>Alice</c-> <c- b>a</c-> <c- p>:</c-><c- f>Person</c-> <c- p>,</c-> <c- p>:</c-><c- f>BookerPrizeWinner</c-> <c- p>;</c->
+  <c- p>:</c-><c- f>name</c-> <c- s>"Alice"</c-> <c- p>.</c->
+
+<c- p>:</c-><c- f>Bob</c-> <c- b>a</c-> <c- p>:</c-><c- f>Person</c-> <c- p>;</c->
+  <c- p>:</c-><c- f>name</c-> <c- s>"Bob"</c-> <c- p>.</c->
+
+<c- p>:</c-><c- f>Book1</c-> <c- b>a</c-> <c- p>:</c-><c- f>Book</c-> <c- p>;</c->
+  <c- p>:</c-><c- f>title</c-> <c- s>"Learn RDF in 21 days"</c-> <c- p>;</c->
+  <c- p>:</c-><c- f>author</c-> <c- p>:</c-><c- f>Alice</c-> <c- p>.</c->
+
+<c- p>:</c-><c- f>Book2</c-> <c- b>a</c-> <c- p>:</c-><c- f>Book</c-> <c- p>;</c->
+  <c- p>:</c-><c- f>title</c-> <c- s>"The RDF Surface programming language"</c-> <c- p>;</c->
+  <c- p>:</c-><c- f>author</c-> <c- p>:</c-><c- f>Bob</c-> <c- p>.</c->
+
+<c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onNeutralSurface</c-> <c- p>{</c->
+  <c- p>:</c-><c- f>BookList1</c-> <c- b>a</c-> <c- nn>ldp</c-><c- p>:</c-><c- f>Container</c-> <c- p>;</c->
+    <c- nn>ldp</c-><c- p>:</c-><c- f>contains</c-> <c- p>:</c-><c- f>Book1</c-> <c- p>,</c-> <c- p>:</c-><c- f>Book2</c-> <c- p>.</c->
+
+  <c- p>:</c-><c- f>AuthorList1</c-> <c- b>a</c-> <c- nn>ldp</c-><c- p>:</c-><c- f>Container</c-> <c- p>;</c->
+    <c- nn>ldp</c-><c- p>:</c-><c- f>contains</c-> <c- p>:</c-><c- f>Alice</c-> <c- p>,</c-> <c- p>:</c-><c- f>Bob</c-> <c- p>.</c->   
+<c- p>}</c-> <c- p>.</c->
+</pre>
+   </div>
+   <div class="example" id="example-ced9ae37">
+    <a class="self-link" href="#example-ced9ae37"></a> The neutral surface in example 26 can still be queried using a query surface. In the
+example query below, using the Notation3 <a href="https://w3c.github.io/N3/spec/#builtins">log:include built-in</a>, we will match: 
+    <ul>
+     <li data-md>
+      <p>All neutral surfaces,</p>
+     <li data-md>
+      <p>..which include an <code>ldp:Container</code> with <code>ldp:members</code>,</p>
+     <li data-md>
+      <p>..each member needs to be a <code>http://example.org/ns#Book</code>,</p>
+     <li data-md>
+      <p>..for each book we match all triples</p>
+    </ul>
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
+<c- k>@prefix</c-> <c- nn>ldp:</c-> <c- g>&lt;http://www.w3.org/ns/ldp#></c-> <c- p>.</c->
+
+<c- p>(</c->_<c- p>:</c-><c- f>Graph</c-> _<c- p>:</c-><c- f>List</c-> _<c- p>:</c-><c- f>Member</c-><c- p>)</c-> <c- nn>log</c-><c- p>:</c-><c- f>onNegativeSurface</c-> <c- p>{</c->
+    <c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onNeutralSurface</c-> _<c- p>:</c-><c- f>Graph</c-> <c- p>.</c->
+    _<c- p>:</c-><c- f>Graph</c-> <c- nn>log</c-><c- p>:</c-><c- f>includes</c-> <c- p>{</c->
+        _<c- p>:</c-><c- f>List</c-> <c- b>a</c-> <c- nn>ldp</c-><c- p>:</c-><c- f>Container</c-> <c- p>;</c->
+            <c- nn>ldp</c-><c- p>:</c-><c- f>contains</c-> _<c- p>:</c-><c- f>Member</c-> <c- p>.</c-> 
+    <c- p>}</c-> <c- p>.</c->
+    <c- p>()</c-> <c- nn>log</c-><c- p>:</c-><c- f>onNegativeSurface</c-> <c- p>{</c->
+        <c- p>(</c->_<c- p>:</c-><c- f>P</c-> _<c- p>:</c-><c- f>O</c-><c- p>)</c-> <c- nn>log</c-><c- p>:</c-><c- f>onQuerySurface</c-> <c- p>{</c->
+            _<c- p>:</c-><c- f>Member</c-> <c- b>a</c-> <c- p>:</c-><c- f>Book</c-> <c- p>;</c->
+                _<c- p>:</c-><c- f>P</c-> _<c- p>:</c-><c- f>O</c-> <c- p>.</c->
+        <c- p>}</c-> <c- p>.</c->
+    <c- p>}</c-> <c- p>.</c->
+<c- p>}</c-> <c- p>.</c->
+</pre>
+    <p>The result of this query should include:</p>
+<pre class="highlight"><c- p>:</c-><c- f>Book1</c-> <c- b>a</c-> <c- p>:</c-><c- f>Book</c-><c- p>.</c->
+<c- p>:</c-><c- f>Book1</c-> <c- p>:</c-><c- f>title</c-> <c- s>"Learn RDF in 21 days"</c-><c- p>.</c->
+<c- p>:</c-><c- f>Book1</c-> <c- p>:</c-><c- f>author</c-> <c- p>:</c-><c- f>Alice</c-><c- p>.</c->
+
+<c- p>:</c-><c- f>Book2</c-> <c- b>a</c-> <c- p>:</c-><c- f>Book</c-><c- p>.</c->
+<c- p>:</c-><c- f>Book2</c-> <c- p>:</c-><c- f>title</c-> <c- s>"The RDF Surface programming language"</c-><c- p>.</c->
+<c- p>:</c-><c- f>Book2</c-> <c- p>:</c-><c- f>author</c-> <c- p>:</c-><c- f>Bob</c-><c- p>.</c->
+</pre>
+    <p>To execute this query we created a postive surface containing the following logical statement:</p>
+<pre>∀ Graph, List , Member : 
+  (
+    () log:onNeutralSurface Graph AND
+
+    Graph log:includes {
+        List a ldp:Container AND
+        List ldp:contains Member  
+    }
+  ) 
+  IMPLIES 
+  (
+    ∀ P,O : query({
+        Member a Book AND
+        Membep P O
+    })
+  ) 
+</pre>
+    <p>We selected first the part of the neutral surface we are interested in and then executed a query over it.</p>
+   </div>
    <h3 class="heading settled" data-level="3.5" id="OtherSurface"><span class="secno">3.5. </span><span class="content">Other Surfaces</span><a class="self-link" href="#OtherSurface"></a></h3>
-   <p class="issue" id="issue-b7b1e314①"><a class="self-link" href="#issue-b7b1e314①"></a> TODO</p>
+   <p class="issue" id="issue-b7b1e314"><a class="self-link" href="#issue-b7b1e314"></a> TODO</p>
    <h3 class="heading settled" data-level="3.6" id="BlankNodes"><span class="secno">3.6. </span><span class="content">Blank nodes</span><a class="self-link" href="#BlankNodes"></a></h3>
-   <p class="issue" id="issue-b7b1e314②"><a class="self-link" href="#issue-b7b1e314②"></a> TODO</p>
+   <p class="issue" id="issue-b7b1e314①"><a class="self-link" href="#issue-b7b1e314①"></a> TODO</p>
    <h2 class="heading settled" data-level="4" id="Fuse"><span class="secno">4. </span><span class="content">Fuse</span><a class="self-link" href="#Fuse"></a></h2>
-   <p class="issue" id="issue-b7b1e314③"><a class="self-link" href="#issue-b7b1e314③"></a> TODO</p>
+   <p class="issue" id="issue-b7b1e314②"><a class="self-link" href="#issue-b7b1e314②"></a> TODO</p>
    <h2 class="heading settled" data-level="5" id="rdf-star-annotations-rdf-star"><span class="secno">5. </span><span class="content">RDF Star annotations {#RDF Star}</span><a class="self-link" href="#rdf-star-annotations-rdf-star"></a></h2>
-   <p class="issue" id="issue-b7b1e314④"><a class="self-link" href="#issue-b7b1e314④"></a> TODO</p>
+   <p class="issue" id="issue-b7b1e314③"><a class="self-link" href="#issue-b7b1e314③"></a> TODO</p>
    <h2 class="heading settled" data-level="6" id="CoherentLogic"><span class="secno">6. </span><span class="content">Coherent logic</span><a class="self-link" href="#CoherentLogic"></a></h2>
-   <p class="issue" id="issue-b7b1e314⑤"><a class="self-link" href="#issue-b7b1e314⑤"></a> TODO</p>
+   <p class="issue" id="issue-b7b1e314④"><a class="self-link" href="#issue-b7b1e314④"></a> TODO</p>
    <h2 class="heading settled" data-level="7" id="Examples"><span class="secno">7. </span><span class="content">Examples</span><a class="self-link" href="#Examples"></a></h2>
-   <p class="issue" id="issue-b7b1e314⑥"><a class="self-link" href="#issue-b7b1e314⑥"></a> TODO</p>
+   <p class="issue" id="issue-b7b1e314⑤"><a class="self-link" href="#issue-b7b1e314⑤"></a> TODO</p>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
@@ -2850,5 +2949,4 @@ WHERE {
    <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314③" title="Jump to section">↵</a></div>
    <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314④" title="Jump to section">↵</a></div>
    <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314⑤" title="Jump to section">↵</a></div>
-   <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314⑥" title="Jump to section">↵</a></div>
   </div>

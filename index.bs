@@ -87,10 +87,12 @@ and another one with the triple `[] a :Cat` (which means *"There is something is
 One can copy these two RDFs graphs to a new surface. This will contain two graphs with 
 two blank nodes:
 
-```
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+
 [] a :City .
 [] a :Cat .
-```
+</pre>
 
 This means, "There is something that is a city AND There is something that is a cat."
 
@@ -204,48 +206,51 @@ of surface).
 <div class=example>
 *"Something is a city"* in Notation3 .
 
-```
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 (_:X) log:onPositiveSurface {
     _:X a :City .
 } .
-```
+</pre>
+
 </div>
 
 <div class=example>
 *"Something is a city"* in Notation3 , version 2 : because the default surface 
 is defined as a positive surface.
 
-```
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 _:X a :City .
-```
+</pre>
+
 </div>
 
 <div class=example>
 *"Nothing is a problem"* in Notation3 .
 
-```
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 (_:X) log:onNegativeSurface {
     _:X a :Problem .
 } .
-```
+</pre>
+
 </div>
 
 <div class=example>
 *"All cats are alive OR dead"* in Notation3. These are Schrödinger cats: logical OR can
 mean alive, or dead, or both alive and dead. 
 
-```
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 (_:X) log:onNegativeSurface {
     _:X a :Cat .
@@ -258,15 +263,16 @@ mean alive, or dead, or both alive and dead.
         _:X :is :Dead .
     } .
 } .
-```
+</pre>
+
 </div>
 
 <div class=example>
 *"If any cat X is alive, then X says meow"* in Notation3 .
 
-```
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 (_:X) log:onNegativeSurface {
     _:X a :Cat ;
@@ -275,7 +281,8 @@ mean alive, or dead, or both alive and dead.
         _:X :says :Meow .
     } .
 } .
-```
+</pre>
+
 </div>
 
 A surface can be queried by providing a query surface. The results of this 
@@ -288,8 +295,8 @@ negative surfaces express that for any subject `_:S` on the positive service
 that is a `:City`, it implies that `_:S` needs be be also a `:HumanCommunity`.
 
 <pre highlight="turtle">
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt;.
 @prefix ex: &lt;http://example.org/ns#&gt;.
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt;.
 
 ex:Ghent a ex:City.
 
@@ -390,9 +397,9 @@ blank node `_:X` is part of `ex:myFirstSurface`. On the nested surface
 `ex:mySecondSurface` the blank node `_:X` is the node from `ex:myFirstSurface`, the
 blank node `_:Y` is created on `ex:mySecondSurface`.
 
-```
-@prefix ex: <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 (_:X) ex:myFirstSurface {
 
@@ -404,7 +411,8 @@ blank node `_:Y` is created on `ex:mySecondSurface`.
         _:Y a ex:AnotherStatement .
     }.
 } .
-```
+</pre>
+
 </div>
 
 ## Positive Surface ## {#PositiveSurface}
@@ -416,23 +424,24 @@ When no surfaces are provided, an implicit positive surface is assumed in the RD
 <div class=example>
 The two surfaces below are equal.
 
-```
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 () log:onPositiveSurface {
     :Alice a :Person .
 }
-```
+</pre>
 
 and
 
-```(turtle)
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 :Alice a :Person .
-```
+</pre>
+
 </div>
 
 The semantics of a positive surface is interpreted as a logical truth:
@@ -452,13 +461,14 @@ As a logical statement:
   :Alice :knows :Bob AND (
     :Bob a :Person AND 
     :Bob :knows :Alice
+  )
 ```
 
 As RDF Surface:
 
-```(turtle)
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 :Alice a :Person .
 :Alice :knows :Bob .
@@ -467,7 +477,8 @@ As RDF Surface:
     :Bob a :Person .
     :Bob :knows :Alice .
 } .
-```
+</pre>
+
 </div>
 
 When a blank node is marked on a positive surface, then it is interpreted as an existential 
@@ -489,9 +500,9 @@ As a logical statement:
 
 As RDF Surface:
 
-```(turtle)
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 :Alice a :Person .
 :Alice :knows :Bob .
@@ -500,7 +511,8 @@ As RDF Surface:
     _:X a :Person .
     _:X :knows :Alice .
 } .
-```
+</pre>
+
 </div>
 
 ## Negative Surface ## {#NegativeSurface}
@@ -530,9 +542,9 @@ As a logical statement:
 
 As RDF Surface:
 
-```(turtle)
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 :Alice a :Person .
 :Alice :knows :Bob .
@@ -541,7 +553,8 @@ As RDF Surface:
     :Bob a :Person .
     :Bob :knows :Alice .
 } .
-```
+</pre>
+
 </div>
 
 When a blank node is marked on a negative surface, then it should be interpreted as an existential
@@ -578,9 +591,9 @@ which is the same as:
 
 As RDF Surface:
 
-```(turtle)
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 :Alice a :Person .
 :Alice :knows :Bob .
@@ -589,7 +602,8 @@ As RDF Surface:
     _:X a :Person .
     _:X :knows :Alice .
 } .
-```
+</pre>
+
 </div>
 
 When two or more negative surfaces are nested in a parent negative surface, then it should
@@ -619,9 +633,9 @@ which is the same as:
 
 As RDF Surface:
 
-```(turtle)
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 :Alice a :Person .
 :Alice :knows :Bob .
@@ -639,7 +653,8 @@ As RDF Surface:
       :Charly a :Person .
     } .
 }.
-```
+</pre>
+
 </div>
 
 With combinations of AND and NOT other logical truth function can be build. E.g.
@@ -661,97 +676,206 @@ and combining the triples into a single RDF Surface by set union.
 The semantics of a query surface is as follows:
 
 - An empty query surface is an empty template which doesn't match any triple on the default surface.
-- A query surface which contains one or more triples, will expose that triple to external applications when the default surface contains the triples.
-- Blank nodes on a query surface are interpreted as a logical universals. Triples matching these tripels will be exposed to external applications.
+- A query surface which contains one or more triples, will expose those triples to external applications when the default surface contains the triples.
+- Blank nodes on a query surface are interpreted as a logical universals. Triples using these blank node universals will be exposed to external applications.
 
 <div class="example">
 A query surface that exposes all the triples on the default surface. 
 
-```(turtle)
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 (_:S _:P _:O) log:onQuerySurface {
     _:S _:P _:O .
 } .
-```
+</pre>
 
 The query above is equivalent to the result of a SPARQL query:
 
-```
+<pre highlight="turtle">
 CONSTRUCT {
     ?S ?P ?O .
 }
 WHERE {
     ?S ?P ?O .
 }
-```
+</pre>
 
 </div>
 
 <div class="example">
-Return the (single) triple on a negative surface 
+Return the MyExample surface which only contains one triple:
 
-```(turtle)
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 (_:S _:P _:O) log:onQuerySurface {
-    () log:onNegativeSurface {
+    () log:onMyExampleSurface {
         _:S _:P _:O .
     } .
 } .
-```
+</pre>
 
 The query above is equivalent to the result of a SPARQL query:
 
-```
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
+
 CONSTRUCT {
-    () log:onNegativeSurface {
+    () log:onMyExampleSurface {
         ?S ?P ?O .
     } .
 }
 WHERE {
-    () log:onNegativeSurface {
+    () log:onMyExampleSurface {
         ?S ?P ?O .
     } .
 }
-```
+</pre>
 
-To return all triples on the negative surface use the query surface:
+Return all triples on MyExample surfaces:
 
-```(turtle)
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 (_:G) log:onQuerySurface {
-    () log:onNegativeSurface _:G .
+    () log:onMyExampleSurface _:G .
 } .
-```
+</pre>
+
 </div>
 
 <div class="example">
-Return triples on a negative surface about `http://example.org/ns#Alice`.
+Return all negative surfaces (without blank node graffiti) which contain one single triple about `http://example.org/ns#Alice`.
 
-```(turtle)
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 (_:P _:O) log:onQuerySurface {
     () log:onNegativeSurface {
         :Alice _:P _:O .
     } .
 } .
+</pre>
 
-```
 </div>
-
-
-Note: A negative surface containing a query surface is treated as a backward rule.
 
 ## Neutral Surface ## {#NeutralSurface}
 
-Issue: TODO
+A neutral surface makes no claims at all about the graphs written on it. Neutral surfaces can be used, for instance,
+to store information about RDF Collections. Triples on a neutral surface will not be "executed" 
+in any way by a reasoner. Unless, the triples are copies to a positive or negative surface. 
+
+Nesting a neutral surface in another neutral surface will create a nesting of two surfaces.
+
+Writing blank node graffiti on a neutral surface doesn't have specific semantic meaning.
+
+<div class="example">
+The surface below contains on the (default) positive surface factual information about
+`http://example.org/ns#Alice` and `http://example.org/ns#Bob` and two books:
+`http://example.org/ns#Book1` and `http://example.org/ns#Book2`. The positive surface
+also contains structural information to group Books and Authors in an arbitrary author and
+book list.
+
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
+@prefix ldp: &lt;http://www.w3.org/ns/ldp#&gt; .
+
+:Alice a :Person , :BookerPrizeWinner ;
+  :name "Alice" .
+
+:Bob a :Person ;
+  :name "Bob" .
+
+:Book1 a :Book ;
+  :title "Learn RDF in 21 days" ;
+  :author :Alice .
+
+:Book2 a :Book ;
+  :title "The RDF Surface programming language" ;
+  :author :Bob .
+
+() log:onNeutralSurface {
+  :BookList1 a ldp:Container ;
+    ldp:contains :Book1 , :Book2 .
+
+  :AuthorList1 a ldp:Container ;
+    ldp:contains :Alice , :Bob .   
+} .
+</pre>
+</div>
+
+<div class="example">
+The neutral surface in example 26 can still be queried using a query surface. In the
+example query below, using the Notation3 [log:include built-in](https://w3c.github.io/N3/spec/#builtins), we will match:
+
+- All neutral surfaces,
+- ..which include an `ldp:Container` with `ldp:members`,
+- ..each member needs to be a `http://example.org/ns#Book`,
+- ..for each book we match all triples
+
+<pre highlight="turtle">
+@prefix : &lt;http://example.org/ns#&gt; .
+@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
+@prefix ldp: &lt;http://www.w3.org/ns/ldp#&gt; .
+
+(_:Graph _:List _:Member) log:onNegativeSurface {
+    () log:onNeutralSurface _:Graph .
+    _:Graph log:includes {
+        _:List a ldp:Container ;
+            ldp:contains _:Member . 
+    } .
+    () log:onNegativeSurface {
+        (_:P _:O) log:onQuerySurface {
+            _:Member a :Book ;
+                _:P _:O .
+        } .
+    } .
+} .
+</pre>
+
+The result of this query should include:
+
+<pre highlight="turtle">
+:Book1 a :Book.
+:Book1 :title "Learn RDF in 21 days".
+:Book1 :author :Alice.
+
+:Book2 a :Book.
+:Book2 :title "The RDF Surface programming language".
+:Book2 :author :Bob.
+</pre>
+
+To execute this query we created a postive surface containing the following logical statement:
+
+```
+∀ Graph, List , Member : 
+  (
+    () log:onNeutralSurface Graph AND
+
+    Graph log:includes {
+        List a ldp:Container AND
+        List ldp:contains Member  
+    }
+  ) 
+  IMPLIES 
+  (
+    ∀ P,O : query({
+        Member a Book AND
+        Membep P O
+    })
+  ) 
+```
+
+We selected first the part of the neutral surface we are interested in and then executed a query over it.
+
+</div>
 
 ## Other Surfaces ## {#OtherSurface}
 
