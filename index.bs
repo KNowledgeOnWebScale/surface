@@ -414,7 +414,7 @@ shields the `_:X` that was defined on `ex:myFirstSurface`: the scope of `_:X` co
 limited to `ex:myThirdSurface`.
 
 <pre highlight="turtle">
-@prefix : &lt;http://example.org/ns#&gt; .
+@prefix ex: &lt;http://example.org/ns#&gt; .
 
 (_:X) ex:myFirstSurface {
 

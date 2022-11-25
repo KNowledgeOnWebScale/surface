@@ -2381,8 +2381,8 @@ but can’t share blank nodes. Any blank nodes that are written inside a surface
 blank node graffiti defined on a parent RDF Surface. If no such parent RDF Surface
 exists, then it is assumed that the blank node is a coreference to an implicit declared
 blank node graffiti on the default positive surface.</p>
-   <div class="example" id="example-f2871556">
-    <a class="self-link" href="#example-f2871556"></a> An <code>ex:myFirstSurface</code> is created which contains two triples and a nested surface. The
+   <div class="example" id="example-1abae297">
+    <a class="self-link" href="#example-1abae297"></a> An <code>ex:myFirstSurface</code> is created which contains two triples and a nested surface. The
 blank node in <code>_:X a ex:OtherStatement</code> is a coreference to the <code>_:X</code> graffiti on <code>ex:myFirstSurface</code>. 
     <p>In the nested surface <code>ex:mySecondSurface</code>, the blank node in <code>_:X ex:is true</code> is also a
 reference to the <code>_:X</code> blank node graffiti on <code>ex:myFirstSurface</code>.</p>
@@ -2392,7 +2392,7 @@ node graffiti. It is assumed that the default positive surface contains that gra
 coreference to the <code>_:X</code> blank node graffiti on <code>ex:myThirdSurface</code>. The new graffiti
 shields the <code>_:X</code> that was defined on <code>ex:myFirstSurface</code>: the scope of <code>_:X</code> coreferences is now
 limited to <code>ex:myThirdSurface</code>.</p>
-<pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
+<pre class="highlight"><c- k>@prefix</c-> <c- nn>ex:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
 
 <c- p>(</c->_<c- p>:</c-><c- f>X</c-><c- p>)</c-> <c- nn>ex</c-><c- p>:</c-><c- f>myFirstSurface</c-> <c- p>{</c->
 
