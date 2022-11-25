@@ -415,7 +415,6 @@ limited to `ex:myThirdSurface`.
 
 <pre highlight="turtle">
 @prefix : &lt;http://example.org/ns#&gt; .
-@prefix log: &lt;http://www.w3.org/2000/10/swap/log#&gt; .
 
 (_:X) ex:myFirstSurface {
 
