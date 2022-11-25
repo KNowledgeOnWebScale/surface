@@ -2046,7 +2046,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">RDF Surfaces Primer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2022-11-08">8 November 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2022-11-25">25 November 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>Issue Tracking:
@@ -2059,7 +2059,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" height="15" src="https://licensebuttons.net/p/zero/1.0/80x15.png" width="80"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 8 November 2022,
+In addition, as of 25 November 2022,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -2081,9 +2081,10 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#PositiveSurface"><span class="secno">3.1</span> <span class="content">Positive Surface</span></a>
       <li><a href="#NegativeSurface"><span class="secno">3.2</span> <span class="content">Negative Surface</span></a>
       <li><a href="#QuerySurface"><span class="secno">3.3</span> <span class="content">Query Surface</span></a>
-      <li><a href="#NeutralSurface"><span class="secno">3.4</span> <span class="content">Neutral Surface</span></a>
-      <li><a href="#OtherSurface"><span class="secno">3.5</span> <span class="content">Other Surfaces</span></a>
-      <li><a href="#BlankNodes"><span class="secno">3.6</span> <span class="content">Blank nodes</span></a>
+      <li><a href="#ConstructSurface"><span class="secno">3.4</span> <span class="content">Construct Surface</span></a>
+      <li><a href="#NeutralSurface"><span class="secno">3.5</span> <span class="content">Neutral Surface</span></a>
+      <li><a href="#OtherSurface"><span class="secno">3.6</span> <span class="content">Other Surfaces</span></a>
+      <li><a href="#BlankNodes"><span class="secno">3.7</span> <span class="content">Blank nodes</span></a>
      </ol>
     <li><a href="#Fuse"><span class="secno">4</span> <span class="content">Fuse</span></a>
     <li><a href="#rdf-star-annotations-rdf-star"><span class="secno">5</span> <span class="content">RDF Star annotations {#RDF Star}</span></a>
@@ -2375,11 +2376,22 @@ special semantics:</p>
    </table>
    <p>A surface can contain zero or more other surfaces. These surfaces are then nested.
 Nested surfaces can share the same <a data-link-type="biblio" href="#biblio-uri">[URI]</a>-s and literals (by copying the data), 
-but can’t share blank nodes.</p>
-   <div class="example" id="example-a21bdf93">
-    <a class="self-link" href="#example-a21bdf93"></a> A <code>ex:myFirstSurface</code> is created which contains two triples and a nested surface. The
-blank node <code>_:X</code> is part of <code>ex:myFirstSurface</code>. On the nested surface <code>ex:mySecondSurface</code> the blank node <code>_:X</code> is the node from <code>ex:myFirstSurface</code>, the
-blank node <code>_:Y</code> is created on <code>ex:mySecondSurface</code>. 
+but can’t share blank nodes. Any blank nodes that are written inside a surface 
+(not as subject of an RDF Surface) are to be interpreted as <em>coreferences</em> to the
+blank node graffiti defined on a parent RDF Surface. If no such parent RDF Surface
+exists, then it is assumed that the blank node is a coreference to an implicit declared
+blank node graffiti on the default positive surface.</p>
+   <div class="example" id="example-11b7568e">
+    <a class="self-link" href="#example-11b7568e"></a> An <code>ex:myFirstSurface</code> is created which contains two triples and a nested surface. The
+blank node in <code>_:X a ex:OtherStatement</code> is a coreference to the <code>_:X</code> graffiti on <code>ex:myFirstSurface</code>. 
+    <p>In the nested surface <code>ex:mySecondSurface</code>, the blank node in <code>_:X ex:is true</code> is also a
+reference to the <code>_:X</code> blank node graffiti on <code>ex:myFirstSurface</code>.</p>
+    <p>The blank node <code>_:Y</code> coreference in <code>ex:mySecondSurface</code> doesn’t refer to a parent blank
+node graffiti. It is assumed that the default positive surface contains that graffiti.</p>
+    <p>In the nested surface <code>ex:myThirdSurface</code>, the blank node in <code>_:X ex:is false</code> is a
+coreference to the <code>_:X</code> blank node graffiti on <code>ex:myThirdSurface</code>. The new graffiti
+shields the <code>_:X</code> that was defined on <code>ex:myFirstSurface</code>: the scope of <code>_:X</code> coreferences is now
+limited to <code>ex:myThirdSurface</code>.</p>
 <pre class="highlight"><c- k>@prefix</c-> <c- nn>:</c-> <c- g>&lt;http://example.org/ns#></c-> <c- p>.</c->
 <c- k>@prefix</c-> <c- nn>log:</c-> <c- g>&lt;http://www.w3.org/2000/10/swap/log#></c-> <c- p>.</c->
 
@@ -2388,9 +2400,13 @@ blank node <code>_:Y</code> is created on <code>ex:mySecondSurface</code>.
     <c- nn>ex</c-><c- p>:</c-><c- f>Statement1</c-> <c- b>a</c-> <c- nn>ex</c-><c- p>:</c-><c- f>NiceStatement</c-> <c- p>.</c->
     _<c- p>:</c-><c- f>X</c-> <c- b>a</c-> <c- nn>ex</c-><c- p>:</c-><c- f>OtherStatement</c-> <c- p>.</c->
      
-    <c- p>(</c->_<c- p>:</c-><c- f>Y</c-><c- p>)</c-> <c- nn>ex</c-><c- p>:</c-><c- f>mySecondSurface</c-> <c- p>{</c->
+    <c- p>()</c-> <c- nn>ex</c-><c- p>:</c-><c- f>mySecondSurface</c-> <c- p>{</c->
         _<c- p>:</c-><c- f>X</c-> <c- nn>ex</c-><c- p>:</c-><c- f>is</c-> <c- l>true</c-> <c- p>.</c-> 
         _<c- p>:</c-><c- f>Y</c-> <c- b>a</c-> <c- nn>ex</c-><c- p>:</c-><c- f>AnotherStatement</c-> <c- p>.</c->
+
+        <c- p>(</c->_<c- p>:</c-><c- f>X</c-><c- p>)</c-> <c- nn>ex</c-><c- p>:</c-><c- f>myThirdSurface</c-> <c- p>{</c->
+            _<c- p>:</c-><c- f>X</c-> <c- nn>ex</c-><c- p>:</c-><c- f>is</c-> <c- l>false</c-> <c- p>.</c->
+        <c- p>}</c-> <c- p>.</c->
     <c- p>}.</c->
 <c- p>}</c-> <c- p>.</c->
 </pre>
@@ -2674,7 +2690,9 @@ WHERE <c- p>{</c->
 <c- p>}</c-> <c- p>.</c->
 </pre>
    </div>
-   <h3 class="heading settled" data-level="3.4" id="NeutralSurface"><span class="secno">3.4. </span><span class="content">Neutral Surface</span><a class="self-link" href="#NeutralSurface"></a></h3>
+   <h3 class="heading settled" data-level="3.4" id="ConstructSurface"><span class="secno">3.4. </span><span class="content">Construct Surface</span><a class="self-link" href="#ConstructSurface"></a></h3>
+   <p class="issue" id="issue-b7b1e314"><a class="self-link" href="#issue-b7b1e314"></a> TODO</p>
+   <h3 class="heading settled" data-level="3.5" id="NeutralSurface"><span class="secno">3.5. </span><span class="content">Neutral Surface</span><a class="self-link" href="#NeutralSurface"></a></h3>
    <p>A neutral surface makes no claims at all about the graphs written on it. Neutral surfaces can be used, for instance,
 to store information about RDF Collections. Triples on a neutral surface will not be "executed" 
 in any way by a reasoner. Unless, the triples are copies to a positive or negative surface.</p>
@@ -2771,18 +2789,18 @@ example query below, using the Notation3 <a href="https://w3c.github.io/N3/spec/
 </pre>
     <p>We selected first the part of the neutral surface we are interested in and then executed a query over it.</p>
    </div>
-   <h3 class="heading settled" data-level="3.5" id="OtherSurface"><span class="secno">3.5. </span><span class="content">Other Surfaces</span><a class="self-link" href="#OtherSurface"></a></h3>
-   <p class="issue" id="issue-b7b1e314"><a class="self-link" href="#issue-b7b1e314"></a> TODO</p>
-   <h3 class="heading settled" data-level="3.6" id="BlankNodes"><span class="secno">3.6. </span><span class="content">Blank nodes</span><a class="self-link" href="#BlankNodes"></a></h3>
+   <h3 class="heading settled" data-level="3.6" id="OtherSurface"><span class="secno">3.6. </span><span class="content">Other Surfaces</span><a class="self-link" href="#OtherSurface"></a></h3>
    <p class="issue" id="issue-b7b1e314①"><a class="self-link" href="#issue-b7b1e314①"></a> TODO</p>
-   <h2 class="heading settled" data-level="4" id="Fuse"><span class="secno">4. </span><span class="content">Fuse</span><a class="self-link" href="#Fuse"></a></h2>
+   <h3 class="heading settled" data-level="3.7" id="BlankNodes"><span class="secno">3.7. </span><span class="content">Blank nodes</span><a class="self-link" href="#BlankNodes"></a></h3>
    <p class="issue" id="issue-b7b1e314②"><a class="self-link" href="#issue-b7b1e314②"></a> TODO</p>
-   <h2 class="heading settled" data-level="5" id="rdf-star-annotations-rdf-star"><span class="secno">5. </span><span class="content">RDF Star annotations {#RDF Star}</span><a class="self-link" href="#rdf-star-annotations-rdf-star"></a></h2>
+   <h2 class="heading settled" data-level="4" id="Fuse"><span class="secno">4. </span><span class="content">Fuse</span><a class="self-link" href="#Fuse"></a></h2>
    <p class="issue" id="issue-b7b1e314③"><a class="self-link" href="#issue-b7b1e314③"></a> TODO</p>
-   <h2 class="heading settled" data-level="6" id="CoherentLogic"><span class="secno">6. </span><span class="content">Coherent logic</span><a class="self-link" href="#CoherentLogic"></a></h2>
+   <h2 class="heading settled" data-level="5" id="rdf-star-annotations-rdf-star"><span class="secno">5. </span><span class="content">RDF Star annotations {#RDF Star}</span><a class="self-link" href="#rdf-star-annotations-rdf-star"></a></h2>
    <p class="issue" id="issue-b7b1e314④"><a class="self-link" href="#issue-b7b1e314④"></a> TODO</p>
-   <h2 class="heading settled" data-level="7" id="Examples"><span class="secno">7. </span><span class="content">Examples</span><a class="self-link" href="#Examples"></a></h2>
+   <h2 class="heading settled" data-level="6" id="CoherentLogic"><span class="secno">6. </span><span class="content">Coherent logic</span><a class="self-link" href="#CoherentLogic"></a></h2>
    <p class="issue" id="issue-b7b1e314⑤"><a class="self-link" href="#issue-b7b1e314⑤"></a> TODO</p>
+   <h2 class="heading settled" data-level="7" id="Examples"><span class="secno">7. </span><span class="content">Examples</span><a class="self-link" href="#Examples"></a></h2>
+   <p class="issue" id="issue-b7b1e314⑥"><a class="self-link" href="#issue-b7b1e314⑥"></a> TODO</p>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
@@ -2949,4 +2967,5 @@ example query below, using the Notation3 <a href="https://w3c.github.io/N3/spec/
    <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314③" title="Jump to section">↵</a></div>
    <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314④" title="Jump to section">↵</a></div>
    <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314⑤" title="Jump to section">↵</a></div>
+   <div class="issue"> TODO <a class="issue-return" href="#issue-b7b1e314⑥" title="Jump to section">↵</a></div>
   </div>

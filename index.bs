@@ -389,13 +389,29 @@ special semantics:
 
 A surface can contain zero or more other surfaces. These surfaces are then nested.
 Nested surfaces can share the same [[URI]]-s and literals (by copying the data), 
-but can't share blank nodes. 
+but can't share blank nodes. Any blank nodes that are written inside a surface 
+(not as subject of an RDF Surface) are to be interpreted as *coreferences* to the
+blank node graffiti defined on a parent RDF Surface. If no such parent RDF Surface
+exists, then it is assumed that the blank node is a coreference to an implicit declared
+blank node graffiti on the default positive surface. 
+
+</div>
 
 <div class=example>
-A `ex:myFirstSurface` is created which contains two triples and a nested surface. The
-blank node `_:X` is part of `ex:myFirstSurface`. On the nested surface 
-`ex:mySecondSurface` the blank node `_:X` is the node from `ex:myFirstSurface`, the
-blank node `_:Y` is created on `ex:mySecondSurface`.
+An `ex:myFirstSurface` is created which contains two triples and a nested surface. The
+blank node in `_:X a ex:OtherStatement` is a coreference to the `_:X` graffiti on 
+`ex:myFirstSurface`. 
+
+In the nested surface `ex:mySecondSurface`, the blank node in `_:X ex:is true` is also a 
+reference to the `_:X` blank node graffiti on `ex:myFirstSurface`. 
+
+The blank node `_:Y` coreference in `ex:mySecondSurface` doesn't refer to a parent blank
+node graffiti. It is assumed that the default positive surface contains that graffiti.
+
+In the nested surface `ex:myThirdSurface`, the blank node in `_:X ex:is false` is a
+coreference to the `_:X` blank node graffiti on `ex:myThirdSurface`. The new graffiti
+shields the `_:X` that was defined on `ex:myFirstSurface`: the scope of `_:X` coreferences is now
+limited to `ex:myThirdSurface`.
 
 <pre highlight="turtle">
 @prefix : &lt;http://example.org/ns#&gt; .
@@ -406,9 +422,13 @@ blank node `_:Y` is created on `ex:mySecondSurface`.
     ex:Statement1 a ex:NiceStatement .
     _:X a ex:OtherStatement .
      
-    (_:Y) ex:mySecondSurface {
+    () ex:mySecondSurface {
         _:X ex:is true . 
         _:Y a ex:AnotherStatement .
+
+        (_:X) ex:myThirdSurface {
+            _:X ex:is false .
+        } .
     }.
 } .
 </pre>
@@ -764,6 +784,10 @@ Return all negative surfaces (without blank node graffiti) which contain one sin
 </pre>
 
 </div>
+
+## Construct Surface ## {#ConstructSurface}
+
+Issue: TODO
 
 ## Neutral Surface ## {#NeutralSurface}
 
