@@ -2046,7 +2046,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">RDF Surfaces Primer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2022-11-25">25 November 2022</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2022-12-09">9 December 2022</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>Issue Tracking:
@@ -2059,7 +2059,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" height="15" src="https://licensebuttons.net/p/zero/1.0/80x15.png" width="80"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 25 November 2022,
+In addition, as of 9 December 2022,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -2217,9 +2217,9 @@ placing it in an enclosing negative surface:</p>
 </pre>
    <ul>
     <li data-md>
-     <p>By placing a blank node on a <em>positive surface</em> it is an existential.</p>
+     <p>By placing a blank node on a <em>positive surface</em> it is an existential quantifier.</p>
     <li data-md>
-     <p>By placing a blank node on a <em>negative surface</em> it is an universal.</p>
+     <p>By placing a blank node on a <em>negative surface</em> it is a universal quantifier.</p>
    </ul>
    <div class="example" id="example-a0c6b17c">
     <a class="self-link" href="#example-a0c6b17c"></a> First-order logic using <em>positive</em> and <em>negative</em> surfaces. 
@@ -2435,7 +2435,7 @@ When no surfaces are provided, an implicit positive surface is assumed in the RD
     <li data-md>
      <p>An empty positive surface is a tautology</p>
     <li data-md>
-     <p>When a triple is placed on a positive surface, then surface is valid when the triple is true.</p>
+     <p>When a triple is placed on a positive surface, then the surface is valid when the triple is true.</p>
     <li data-md>
      <p>When two or more triples are placed on a positive surface, then the surface is valid when the logical conjunction of all triples is true.</p>
    </ul>
@@ -2495,7 +2495,7 @@ intepretation of the negative surface is the negation of RDF Graph on it.</p>
     <li data-md>
      <p>An empty negative surface is a contradiction.</p>
     <li data-md>
-     <p>When a triple is placed on a negative surface, then surface is valid when the triple is false.</p>
+     <p>When a triple is placed on a negative surface, then the surface is valid when the triple is false.</p>
     <li data-md>
      <p>When two or more triples are placed on a positive surface, then the surface is valid when the logical conjunction of all triples is false.</p>
    </ul>
@@ -2622,7 +2622,7 @@ and combining the triples into a single RDF Surface by set union.</p>
     <li data-md>
      <p>A query surface which contains one or more triples, will expose those triples to external applications when the default surface contains the triples.</p>
     <li data-md>
-     <p>Blank nodes on a query surface are interpreted as a logical universals. Triples using these blank node universals will be exposed to external applications.</p>
+     <p>Blank nodes on a query surface are interpreted as logical universals. Triples using these blank node universals will be exposed to external applications.</p>
    </ul>
    <div class="example" id="example-06abf4da">
     <a class="self-link" href="#example-06abf4da"></a> A query surface that exposes all the triples on the default surface. 
@@ -2694,7 +2694,7 @@ WHERE <c- p>{</c->
    <h3 class="heading settled" data-level="3.5" id="NeutralSurface"><span class="secno">3.5. </span><span class="content">Neutral Surface</span><a class="self-link" href="#NeutralSurface"></a></h3>
    <p>A neutral surface makes no claims at all about the graphs written on it. Neutral surfaces can be used, for instance,
 to store information about RDF Collections. Triples on a neutral surface will not be "executed" 
-in any way by a reasoner. Unless, the triples are copies to a positive or negative surface.</p>
+in any way by a reasoner. Unless, the triples are copied to a positive or negative surface.</p>
    <p>Nesting a neutral surface in another neutral surface will create a nesting of two surfaces.</p>
    <p>Writing blank node graffiti on a neutral surface doesn’t have specific semantic meaning.</p>
    <div class="example" id="example-3e84fef3">
