@@ -185,8 +185,8 @@ placing it in an enclosing negative surface:
 ∀ x : P(x) ⇔ NOT(∃ x : NOT P(x)):
 ```
 
-- By placing a blank node on a *positive surface* it is an existential.
-- By placing a blank node on a *negative surface* it is an universal.
+- By placing a blank node on a *positive surface* it is an existential quantifier.
+- By placing a blank node on a *negative surface* it is a universal quantifier.
 
 <div class=example>
 First-order logic using *positive* and *negative* surfaces.
@@ -466,7 +466,7 @@ and
 The semantics of a positive surface is interpreted as a logical truth:
 
 - An empty positive surface is a tautology 
-- When a triple is placed on a positive surface, then surface is valid when the triple is true.
+- When a triple is placed on a positive surface, then the surface is valid when the triple is true.
 - When two or more triples are placed on a positive surface, then the surface is valid when the logical conjunction of all triples is true.
 
 <div class="example">
@@ -542,7 +542,7 @@ intepretation of the negative surface is the negation of RDF Graph on it.
 The semantics of a negative surface is interpreted as a logical falsehood:
 
 - An empty negative surface is a contradiction.
-- When a triple is placed on a negative surface, then surface is valid when the triple is false.
+- When a triple is placed on a negative surface, then the surface is valid when the triple is false.
 - When two or more triples are placed on a positive surface, then the surface is valid when the logical conjunction of all triples is false.
 
 <div class="example">
@@ -696,7 +696,7 @@ The semantics of a query surface is as follows:
 
 - An empty query surface is an empty template which doesn't match any triple on the default surface.
 - A query surface which contains one or more triples, will expose those triples to external applications when the default surface contains the triples.
-- Blank nodes on a query surface are interpreted as a logical universals. Triples using these blank node universals will be exposed to external applications.
+- Blank nodes on a query surface are interpreted as logical universals. Triples using these blank node universals will be exposed to external applications.
 
 <div class="example">
 A query surface that exposes all the triples on the default surface. 
@@ -792,7 +792,7 @@ Issue: TODO
 
 A neutral surface makes no claims at all about the graphs written on it. Neutral surfaces can be used, for instance,
 to store information about RDF Collections. Triples on a neutral surface will not be "executed" 
-in any way by a reasoner. Unless, the triples are copies to a positive or negative surface. 
+in any way by a reasoner. Unless, the triples are copied to a positive or negative surface. 
 
 Nesting a neutral surface in another neutral surface will create a nesting of two surfaces.
 
