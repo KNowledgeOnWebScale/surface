@@ -6,6 +6,7 @@ Editor: Patrick Hochstenbach, [KNoWS](https://knows.idlab.ugent.be/team/), patri
 Editor: Jos De Roo, [KNoWS](https://knows.idlab.ugent.be/team/), jos.deroo@ugent.be 
 Abstract: This document specifies a Notation3 sublanguage to express RDF Surfaces.
 Markup Shorthands: markdown yes 
+Logo: images/logo.svg
 Boilerplate: 
 </pre>
 
@@ -44,8 +45,13 @@ table th.last {
 Introduction {#Introduction}
 =====================
 
-Based on:
-[BLOGIC](https://www.slideshare.net/PatHayes/blogic-iswc-2009-invited-talk) 
+<img src="[LOGO]" alt="Logo" width="100" style="float: left; margin: 5px;"/>  
+
+This document presents a [Notation3](https://w3c.github.io/N3/spec/) sublanguage 
+to express a revised RDF logic as envisoned by [Pat Hayes](https://www.ihmc.us/groups/phayes/) in his 2009 ISWC Invited 
+Talk: [BLOGIC](https://www.slideshare.net/PatHayes/blogic-iswc-2009-invited-talk). RDF
+Surfaces logic can be thought as an implementation of [Charles Sanders Peirce](https://en.wikipedia.org/wiki/Charles_Sanders_Peirce)'s 
+[Existential Graphs](http://www.jfsowa.com/peirce/ms514.htm) in RDF.
 
 An RDF surface is a kind of a sheet of paper on which RDF graphs can be written.
 All triples that are part of an RDF graph are then on this sheet of paper, including all
